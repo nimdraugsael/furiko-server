@@ -4,4 +4,8 @@ class AsUser < ActiveRecord::Base
 
 	attr_accessible :extension, :name, :jid 
 
+
+	def username
+		(/^([^\@]+)/.match(self.jid)).to_s
+	end
 end
