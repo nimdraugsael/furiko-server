@@ -3,7 +3,8 @@ FurikoServer::Application.routes.draw do
   # first created -> highest priority.
 
   match 'users/:id' => 'users#show', :method => 'get'
-  match 'dials' => 'dials#new', :method => 'post'
+  get 'dials/new' => 'dials#new'
+  get 'users/:id/history' => 'users#history'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

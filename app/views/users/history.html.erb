@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>furiko history</title>
+</head>
+<body>
+	<h4> <%= @conversations %> </h4>
+	<ul>
+		<% @conversations.each do |c| %>
+			<li>
+				<ul>
+					<% c.messages.each do |m| %>
+						<li>
+							<%= Time.at(m.time/1000).to_s(:db) %>  
+							<%= (m.direction == "from") ? m.conversation.ownerJid : m.conversation.withJid %> 
+							<%= m.body %> </li>  
+					<% end  %>    
+				</ul>
+			</li>
+		<% end  %>  
+	</ul>    
+</body>
+</html>
