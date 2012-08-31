@@ -235,27 +235,27 @@
 
 	$conn = new XMPPHP_XMPP('avanpbx', 5222, 'frk', '123456', 'xmpphp', 'avanpbx', $printlog=false, $loglevel=XMPPHP_Log::LEVEL_INFO);
 	$conn->useEncryption(False);
-  $conn->processTime(100);
+  // $conn->processTime(100);
 
 	try {
 		$conn->connect();
 		$connected = true;
 		while($connected) {
 		  $payloads = $conn->processUntil(array('message', 'presence', 'end_stream', 'session_start'));
-		  var_dump($payloads);
-		  // if (isset($payloads)) {
-			 //  foreach($payloads as $xmpp_event) {
-		  //     $pl = $xmpp_event[1];
-		  //     switch($xmpp_event[0]) {
-    //         case 'message':
-    //         	processMessage($pl, $conn);
-	   //          break;
-    //         case 'session_start':
-    //           $conn->presence($status="Furiko works");
-	   //          break;
-	   //  		}
-		  //   }	
-		  // }
+		  // var_dump($payloads);
+		  if (isset($payloads)) {
+			  foreach($payloads as $xmpp_event) {
+		      $pl = $xmpp_event[1];
+		      switch($xmpp_event[0]) {
+            case 'message':
+            	processMessage($pl, $conn);
+	            break;
+            case 'session_start':
+              $conn->presence($status="Furiko works");
+	            break;
+	    		}
+		    }	
+		  }
 		  // PAMI now
 	    $pamiClient->process();  
   		// usleep(100);  
