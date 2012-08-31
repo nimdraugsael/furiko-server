@@ -1,0 +1,38 @@
+2012-08-31 15:38:42,723 [DEBUG] Pami.ClientImpl: ----------------
+2012-08-31 15:38:42,723 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-0000000d
+Context: from-internal
+Extension: 011
+Priority: 1
+Application: Set
+AppData: __RINGTIMER=15
+Uniqueid: 1346387571.13
+
+
+2012-08-31 15:38:42,907 [DEBUG] Pami.ClientImpl: ----------------
+2012-08-31 15:38:42,907 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newstate
+Privilege: call,all
+Channel: SIP/011-0000000e
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 011
+CallerIDName: user2
+ConnectedLineNum: 010
+ConnectedLineName: nimdraug
+Uniqueid: 1346387573.14
+
+2012-08-31 15:38:42,908 [DEBUG] Pami.ClientImpl: ----------------
+2012-08-31 15:38:42,908 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Bridge
+Privilege: call,all
+Bridgestate: Link
+Bridgetype: core
+Channel1: SIP/010-0000000d
+Channel2: SIP/011-0000000e
+Uniqueid1: 1346387571.13
+Uniqueid2: 1346387573.14
+CallerID1: 010
+CallerID2: 011

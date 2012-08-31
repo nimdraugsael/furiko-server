@@ -643,15 +643,17 @@ class XMPPHP_XMLStream {
 				$handler[2]->$handler[1]($payload);
 			}
 		}
-		foreach($this->until as $key => $until) {
-			if(is_array($until)) {
-				if(in_array($name, $until)) {
-					$this->until_payload[$key][] = array($name, $payload);
-					if(!isset($this->until_count[$key])) {
-						$this->until_count[$key] = 0;
+		if ($this->until) {
+			foreach($this->until as $key => $until) {
+				if(is_array($until)) {
+					if(in_array($name, $until)) {
+						$this->until_payload[$key][] = array($name, $payload);
+						if(!isset($this->until_count[$key])) {
+							$this->until_count[$key] = 0;
+						}
+						$this->until_count[$key] += 1;
+						#$this->until[$key] = false;
 					}
-					$this->until_count[$key] += 1;
-					#$this->until[$key] = false;
 				}
 			}
 		}
