@@ -8,42 +8,62 @@
 	use PAMI\Message\Action\OriginateAction;
 	use PAMI\Message\Event\EventMessage;
 
-	include 'XMPPHP/XMPP.php';
+	declare(ticks=1);
 
+	require 'JAXL/jaxl.php';
 
-	function processMessage( $msg, $conn )
+	// include 'XMPPHP/XMPP.php';
+	function sendMessage($to, $body)
+	{
+		$stanza = new XMPPStanza("message");
+		$stanza->to = $to;
+		$stanza->body = $body;
+		$stanza->type = "headline";
+		$stanza->from = "frk@avanpx";
+		global $xmpp_client;
+		$xmpp_client->send($stanza);
+	}
+
+	function processMessage( $stanza )
 	{
 		global $pamiClient;
+		global $xmpp_client;
 		global $db;
 		global $users;
+		global $originating_calls;
 		$msg_type = "headline";
 		// $users['nimdraugtest@avanpbx'] = '011';
 		// $users['nimdraug@avanpbx'] = '010';
-		var_dump($users);
-		$body = $msg['body'];
+		// var_dump($users);
+		// $body = $msg['body'];
+		$body = str_replace("&quot;", '"', $stanza->body);
+
+		echo "body :> $body";
 	    $request = json_decode($body, true);
+	    $from = bare_jid($stanza->from);
+	    echo bare_jid($stanza->from);
+	    // --
+	    // unset( $request );
 	    if ( isset($request) ) 
 	    {
 	    	if ( isset($request['Action']) )
 	    		switch($request['Action']) {
 	            case 'Handshake':
-	                $ext = $db->getExtension($msg['from']);
+	                $ext = $db->getExtension($from);
 	                
 	            	$response_array = array(	'Action' => 'Handshake', 
 	                							'Success' => True,
 	                							'Extension' => $ext );
 	                $response = json_encode($response_array);
-	                $users[bare_jid($msg['from'])] = $ext;
-	                // echo "new Handshake: n";
-	                // var_dump($users);
-	                $conn->message($msg['from'], $body=$response, $msg_type);
+	                $users[$from] = $ext;
+              		sendMessage($from, $response);
 	            break;
 	            case 'History':
-	            	if (isset($users[bare_jid($msg['from'])]))
+	            	if (isset($users[$from]))
 	            	{
 	            		if ( isset($request['With']) )
 	            		{
-		            		$from = bare_jid($msg['from']);
+		            		$from = bare_jid($from);
 		            		$with = $request['With'];
 		            		// echo "getHistory: from $from , with $with";
 		            		$history = $db->getHistory($from, $with);
@@ -74,14 +94,13 @@
 	                								'Error' => "Not registered, Handshake first" );	
 	            	}
 	                $response = json_encode($response_array);
-	                $conn->message($msg['from'], $body=$response, $msg_type);
+              		sendMessage($from, $response);
 	            break;
 	            case 'OutgoingCall':
-	            	if (isset($users[bare_jid($msg['from'])]))
+	            	if (isset($users[$from]))
 	            	{
 	            		if ( isset($request['With']) )
 	            		{
-		            		$from = bare_jid($msg['from']);
 		            		$with = $request['With'];
 		            		// echo "getHistory: from $from , with $with";
 		            		$from_ext = $db->getExtension($from);
@@ -94,8 +113,10 @@
 			            		$oa->setPriority("1");
 			            		$oa->setCallerId($from);
 			            		$response = $pamiClient->send($oa);
+			            		$originating_calls[] = array(	'from_ext' => $from_ext,
+			            										'with_ext' => $with_ext );
 			            		$response_array = array(	'Action' => 'OutgoingCall', 
-			                													'Success' => $response->isSuccess() );
+			                								'Success' => $response->isSuccess() );
 		            		}
 		            		else 
 		            		{
@@ -118,7 +139,7 @@
 	                								'Error' => "Not registered, Handshake first" );	
 	            	}
 	                $response = json_encode($response_array);
-	                $conn->message($msg['from'], $body=$response, $msg_type);
+              		sendMessage($from, $response);
 	            break;
 	        }
 	    }
@@ -128,6 +149,14 @@
 	{
 		return preg_replace('/([^\/]+)\/[^\/]+/i', '$1', $jid);		
 	}
+
+	function bare_ext($channel)
+	{
+		preg_match('/[^\/]+\/([^\-]+)/i', $channel, $result);
+		if (isset($result[1])) return $result[1];
+	}
+
+
 
 	class Database 
 	{
@@ -157,6 +186,16 @@
 			$row = $res->fetch_assoc();
 			var_dump($row['extension']);
 			return ($row['extension']);
+		}
+
+		public function getJid($extension) {
+			$sql = "select jid 
+					from users 
+					where extension='$extension'";
+			$res = $this->mysqli_asterisk->query($sql);
+			$res->data_seek(0);
+			$row = $res->fetch_assoc();
+			return ($row['jid']) ? $row['jid'] : $extension;
 		}
 
 		public function getHistory($from, $with)
@@ -191,7 +230,7 @@
 
 	date_default_timezone_set('Asia/Vladivostok');
 	$pamiClientOptions = array(  
-			'log4php.properties' => __DIR__ . '/log4php.properties',  
+		'log4php.properties' => __DIR__ . '/log4php.properties',  
 	    'host' => 'avanpbx',        
 	    'scheme' => 'tcp://',         
 	    'port' => 5038,               
@@ -203,68 +242,144 @@
 
 	
 	$pamiClient = new PamiClient($pamiClientOptions);  
-	  
 	// Open the connection  
 	$pamiClient->open();  
 	$pamiClient->registerEventListener(  
 	    function (EventMessage $event) {
-				echo "event:\n";  
+				// echo "event:\n";  
 				// print_r($event);
-
-				echo "EMPTY? -> |" . $event->getName() . "|\n";   
+				// echo "EMPTY? -> |" . $event->getName() . "|\n";   
 	        // var_dump($event);
-	        // if ($event instanceof PAMI\Message\Event\BridgeEvent)
-	        // {
-	        // 	echo "\n";
-	        // 	echo "Channel1 :" . $event->getChannel1();
-	        // 	echo "Channel2 :" . $event->getChannel2();
-	        // 	echo "\n";
-	        // } 
+	        if ($event instanceof PAMI\Message\Event\BridgeEvent)
+	        {
+	        	global $originating_calls;
+	        	global $users;
+	        	$channel1 = $event->getChannel1();
+	        	$channel2 = $event->getChannel2();
+	        	echo "Calls now $channel1~$channel2: ";
+	        	var_dump($originating_calls);
+	        	if ($originating_calls != null) {
+		        	foreach ($originating_calls as $call) {
+						print_r($call);
+						if ( $call["from_ext"] ==  bare_ext($channel1) ) {
+							$jid = array_search(bare_ext($channel1), $users);
+							if ($jid != null) {
+								$response = json_encode(
+									array(	'Action' 	=> 'BridgeEvent',
+	        								'Success' 	=> 'True' ));
+								sendMessage($jid, $response);
+							}
+						}	
+						if ( $call["with_ext"] ==  bare_ext($channel2) ) {
+							$jid = array_search(bare_ext($channel2), $users);
+							if ($jid != null) {
+								$response = json_encode(
+									array(	'Action' 	=> 'BridgeEvent',
+	        								'Success' 	=> 'True' ));
+								sendMessage($jid, $response);
+							}
+						}		        		
+		        	}
+	        	}
+	        	else {
+	        		$from_jid = array_search(bare_ext($channel1), $users);
+	        		if ($from_jid != null) {
+	        			$response = json_encode(
+									array(	'Action' 	=> 'BridgeEvent',
+	        								'Success' 	=> 'True' ));
+								sendMessage($from_jid, $response);
+	        		}
+					$with_jid = array_search(bare_ext($channel2), $users);
+	        		if ($with_jid != null) {
+	        			$response = json_encode(
+									array(	'Action' 	=> 'BridgeEvent',
+	        								'Success' 	=> 'True' ));
+								sendMessage($with_jid, $response);
+	        		}		
+	        	}
+	        } 
+	        if ($event instanceof PAMI\Message\Event\HangupEvent)
+	        {
+	        	global $users;
+	        	$channel = $event->getChannel();
+	        	echo "Hangup channel $channel";
+	        	if ($users) {
+					$jid = array_search(bare_ext($channel), $users);
+					if ($jid != null) {
+						$response = json_encode(
+							array(	'Action' 	=> 'HangupEvent',
+									'Success' 	=> 'True' ));
+						sendMessage($jid, $response);
+					}
+	        	}
+	        } 
+	        if ($event instanceof PAMI\Message\Event\DialEvent)
+	        {
+	        	global $users;
+	        	global $db;
+	        	$sub_event = $event->getSubEvent();
+	        	$channel = bare_ext($event->getChannel());
+	        	echo "Dial event\n";
+				$from = $channel;
+				$from_jid = $db->getJid($from);
+
+	        	$destination = bare_ext($event->getDestination());
+	        	if ($sub_event == "Begin" && $users != null) {
+					$jid = array_search($destination, $users);
+					if ($jid != null) {
+						$response = json_encode(
+							array(	'Action' 	=> 'IncomingCallEvent',
+									'Success' 	=> 'True',
+									'From' => $from,
+									'FromJid' => $from_jid ));
+						sendMessage($jid, $response);
+					}
+	        	}
+	        } 
 	    }
-	 //    ,  
-		// function (EventMessage $event) {  
-	 //        return  
-	 //            $event instanceof BridgeEvent;
-	 //        ;  
-	 //    }
 	    );  
 	
-	$db = new Database();
-	echo $db->getExtension("nimdraugtest@avanpbx/fasdfasdf");
-	$db->getHistory("nimdraug@avanpbx", "nimdraugtest@avanpbx");
+	register_tick_function(array($pamiClient, 'process'));
 
-	$conn = new XMPPHP_XMPP('avanpbx', 5222, 'frk', '123456', 'xmpphp', 'avanpbx', $printlog=false, $loglevel=XMPPHP_Log::LEVEL_INFO);
-	$conn->useEncryption(False);
-  // $conn->processTime(100);
+	$db = new Database();
+
+	$xmpp_client = new JAXL(array(
+			'jid' => 'frk',
+			'pass' => '123456',
+			'host' => 'avanpbx:5222'
+		));
+
+	$connected = true;
+	
+	$xmpp_client->add_cb('on_auth_failure', function($reason) {
+		global $xmpp_client;
+		$xmpp_client->send_end_stream();
+		_info("CALLBACK! got on_auth_failure cb with reason $reason");
+	});
+
+	$xmpp_client->add_cb('on_connect_error', function($reason) {
+		_info("connect error $reason");
+	});
+  
+	$xmpp_client->add_cb('on_auth_success', function() {
+		_info("connected!!");
+		global $xmpp_client;
+		$xmpp_client->set_status("available!", "dnd", 10);
+	});
+
+	$xmpp_client->add_cb('on_chat_message', function($stanza) {
+		global $xmpp_client;
+		processMessage($stanza);
+	});
 
 	try {
-		$conn->connect();
-		$connected = true;
-		while($connected) {
-		  $payloads = $conn->processUntil(array('message', 'presence', 'end_stream', 'session_start'));
-		  // var_dump($payloads);
-		  if (isset($payloads)) {
-			  foreach($payloads as $xmpp_event) {
-		      $pl = $xmpp_event[1];
-		      switch($xmpp_event[0]) {
-            case 'message':
-            	processMessage($pl, $conn);
-	            break;
-            case 'session_start':
-              $conn->presence($status="Furiko works");
-	            break;
-	    		}
-		    }	
-		  }
-		  // PAMI now
-	    $pamiClient->process();  
-  		// usleep(100);  
-  	}
-	} 
-	catch(XMPPHP_Exception $e) {
-	    die($e->getMessage());
+		$xmpp_client->start();
+	} catch (Exception $e) {
+		echo $e."\n";
+		echo "rebooting\n";
+		$xmpp_client->start();	
 	}
-	// Close the connection  
+
 	try {
 		$pamiClient->close();  
 	} catch (Exception $e) {

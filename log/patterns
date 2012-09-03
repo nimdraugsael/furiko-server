@@ -1,38 +1,5326 @@
-2012-08-31 15:38:42,723 [DEBUG] Pami.ClientImpl: ----------------
-2012-08-31 15:38:42,723 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+2012-09-01 14:39:53,158 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Originate
+actionid: 1346470793.157
+channel: SIP/010
+exten: 011
+context: from-internal
+priority: 1
+callerid: nimdraug@avanpbx
+
+----------
+2012-09-01 14:40:29,072 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1346470829.0715
+username: furiko
+secret: 123456
+
+----------
+2012-09-01 14:40:29,075 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1346470829.0715
+Message: Authentication accepted
+
+
+2012-09-01 14:40:29,076 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:29,077 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-09-01 14:40:29,078 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:29,078 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-09-01 14:40:30,338 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: RTCPSent
+Privilege: reporting,all
+To: 192.168.1.2:8001
+OurSSRC: 249486758
+SentNTP: 1346470831.0147611648
+SentRTP: 119840
+SentPackets: 749
+SentOctets: 119840
+ReportBlock:
+FractionLost: 0
+CumulativeLoss: 0
+IAJitter: 0.0003
+TheirLastSR: 36497719
+DLSR: 1.4170 (sec)
+
+
+2012-09-01 14:40:30,339 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,331 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: ExtensionStatus
+Privilege: call,all
+Exten: 011
+Context: ext-local
+Hint: SIP/011
+Status: 0
+
+
+2012-09-01 14:40:31,332 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,332 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Hangup
+Privilege: call,all
+Channel: SIP/011-00000054
+Uniqueid: 1346470816.84
+CallerIDNum: 011
+CallerIDName: user2
+ConnectedLineNum: 010
+ConnectedLineName: user1
+Cause: 16
+Cause-txt: Normal Clearing
+
+
+2012-09-01 14:40:31,334 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
 Event: Newexten
 Privilege: dialplan,all
-Channel: SIP/010-0000000d
+Channel: SIP/010-00000053
+Context: macro-user-callerid
+Extension: s
+Priority: 26
+Application: Set
+AppData: CALLERID(number)=010
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,335 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,336 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,336 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,336 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-user-callerid
+Extension: s
+Priority: 27
+Application: Set
+AppData: CALLERID(name)=user1
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,337 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,337 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,337 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,337 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-user-callerid
+Extension: s
+Priority: 28
+Application: Set
+AppData: CHANNEL(language)=en
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,337 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,337 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,338 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,338 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: ARG1
+Value: 011
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,338 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,338 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,338 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,338 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_CONTEXT
+Value: macro-exten-vm
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,338 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,339 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_PRIORITY
+Value: 21
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,339 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,339 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,339 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,339 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: s
+Priority: 2
+Application: Set
+AppData: VMGAIN=""
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,339 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,340 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: VMGAIN
+Value: ""
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,340 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,340 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,340 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,340 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: s
+Priority: 3
+Application: Macro
+AppData: blkvm-check,
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,340 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,340 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_CONTEXT
+Value: macro-vm
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_PRIORITY
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,341 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: ARG1
+Value: 
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,342 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,342 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,342 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,342 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-blkvm-check
+Extension: s
+Priority: 1
+Application: Set
+AppData: GOSUB_RETVAL=
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,342 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,342 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: GOSUB_RETVAL
+Value: 
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,343 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,343 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,343 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,343 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-blkvm-check
+Extension: s
+Priority: 2
+Application: ExecIf
+AppData: 0?Set(GOSUB_RETVAL=TRUE)
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,343 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,343 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,344 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,344 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-blkvm-check
+Extension: s
+Priority: 3
+Application: MacroExit
+AppData: 
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,344 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,344 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,344 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,344 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: ARG1
+Value: 011
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,345 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,345 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,345 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,345 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_CONTEXT
+Value: macro-exten-vm
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,345 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,345 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_PRIORITY
+Value: 21
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,346 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,346 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,346 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,346 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: s
+Priority: 4
+Application: GotoIf
+AppData: 1?vmx,1
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,346 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,346 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,347 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,347 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 1
+Application: Set
+AppData: MEXTEN=011
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,347 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,347 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MEXTEN
+Value: 011
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,347 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,347 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,347 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,348 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 2
+Application: Set
+AppData: MMODE=NOANSWER
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,348 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,348 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MMODE
+Value: NOANSWER
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,348 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,348 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,348 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,348 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 3
+Application: Set
+AppData: RETVM=
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,349 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,349 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: RETVM
+Value: 
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,349 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,349 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,349 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,349 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 4
+Application: Set
+AppData: MODE=unavail
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,349 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,350 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MODE
+Value: unavail
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,350 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,350 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,350 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,350 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 5
+Application: GotoIf
+AppData: 1?chknomsg
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,350 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,350 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,351 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,351 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 8
+Application: GotoIf
+AppData: 0?s-NOANSWER,1
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,351 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,351 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,351 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,351 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 9
+Application: GotoIf
+AppData: 1?notdirect
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 11
+Application: NoOp
+AppData: Checking if ext 011 is enabled: 
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,352 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: vmx
+Priority: 12
+Application: GotoIf
+AppData: 1?s-NOANSWER,1
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,353 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,353 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,353 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,353 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: s-NOANSWER
+Priority: 1
+Application: Macro
+AppData: get-vmcontext,011
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,353 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,354 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_EXTEN
+Value: s-NOANSWER
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,354 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,355 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_CONTEXT
+Value: macro-vm
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,355 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,355 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_PRIORITY
+Value: 1
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,355 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,355 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,355 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,356 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: ARG1
+Value: 011
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,356 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,356 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,356 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,356 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: DB_RESULT
+Value: default
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,356 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,356 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-get-vmcontext
+Extension: s
+Priority: 1
+Application: Set
+AppData: VMCONTEXT=default
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,357 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,357 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: VMCONTEXT
+Value: default
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,357 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,357 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,357 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,357 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-get-vmcontext
+Extension: s
+Priority: 2
+Application: GotoIf
+AppData: 0?200:300
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-get-vmcontext
+Extension: s
+Priority: 300
+Application: NoOp
+AppData: 
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,358 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: ARG1
+Value: 011
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,359 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,359 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,359 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,359 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_CONTEXT
+Value: macro-exten-vm
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,359 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,359 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_PRIORITY
+Value: 21
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,359 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,360 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,360 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:31,360 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000053
+Context: macro-vm
+Extension: s-NOANSWER
+Priority: 2
+Application: VoiceMail
+AppData: 011@default,u""
+Uniqueid: 1346470793.83
+
+
+2012-09-01 14:40:31,360 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:59,128 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1346470859.1268
+username: furiko
+secret: 123456
+
+----------
+2012-09-01 14:40:59,129 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1346470859.1268
+Message: Authentication accepted
+
+
+2012-09-01 14:40:59,131 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:59,131 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-09-01 14:40:59,132 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:40:59,132 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-09-01 14:40:59,702 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet:  
+
+
+2012-09-01 14:40:59,703 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:15,306 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Originate
+actionid: 1346470875.3054
+channel: SIP/010
+exten: 011
+context: from-internal
+priority: 1
+callerid: nimdraug@avanpbx
+
+----------
+2012-09-01 14:41:20,520 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1346470875.3054
+Message: Originate successfully queued
+
+
+2012-09-01 14:41:20,520 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,520 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/010-00000055
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 010
+CallerIDName: user1
+AccountCode: 
+Exten: 
+Context: from-internal
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,522 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,522 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: SIPCALLID
+Value: 5270303335c503ec51fbc7940317f8d5@192.168.1.240:5060
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,523 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,523 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: NewAccountCode
+Privilege: call,all
+Channel: SIP/010-00000055
+Uniqueid: 1346470876.85
+AccountCode: 
+OldAccountCode: 
+
+
+2012-09-01 14:41:20,525 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,525 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/010-00000055
+CallerIDNum: 010
+CallerIDName: nimdraug@avanpbx
+Uniqueid: 1346470876.85
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+
+2012-09-01 14:41:20,526 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,526 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: ExtensionStatus
+Privilege: call,all
+Exten: 010
+Context: ext-local
+Hint: SIP/010
+Status: 8
+
+
+2012-09-01 14:41:20,527 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,527 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newstate
+Privilege: call,all
+Channel: SIP/010-00000055
+ChannelState: 5
+ChannelStateDesc: Ringing
+CallerIDNum: 010
+CallerIDName: nimdraug@avanpbx
+ConnectedLineNum: 
+ConnectedLineName: nimdraug@avanpbx
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,529 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,529 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: ExtensionStatus
+Privilege: call,all
+Exten: 010
+Context: ext-local
+Hint: SIP/010
+Status: 1
+
+
+2012-09-01 14:41:20,529 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,529 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newstate
+Privilege: call,all
+Channel: SIP/010-00000055
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 010
+CallerIDName: nimdraug@avanpbx
+ConnectedLineNum: 
+ConnectedLineName: nimdraug@avanpbx
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,529 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,530 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,530 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,530 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,531 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,531 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
 Context: from-internal
 Extension: 011
 Priority: 1
 Application: Set
 AppData: __RINGTIMER=15
-Uniqueid: 1346387571.13
+Uniqueid: 1346470876.85
 
 
-2012-08-31 15:38:42,907 [DEBUG] Pami.ClientImpl: ----------------
-2012-08-31 15:38:42,907 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+2012-09-01 14:41:20,532 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,532 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __RINGTIMER
+Value: 15
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,533 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,533 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: from-internal
+Extension: 011
+Priority: 2
+Application: Macro
+AppData: exten-vm,011,011,0,0,0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,533 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,533 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,533 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,533 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: from-internal
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,533 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,534 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,534 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,534 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,534 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,534 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,535 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,535 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG2
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,535 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,535 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG3
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,536 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,536 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG4
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,536 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,536 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG5
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,536 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,537 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,537 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,537 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 1
+Application: Macro
+AppData: user-callerid,
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,537 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,538 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,538 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,538 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: macro-exten-vm
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,538 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,539 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,539 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,539 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,539 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,539 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,540 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,540 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,540 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,540 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 1
+Application: Set
+AppData: AMPUSER=010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,541 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,541 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: AMPUSER
+Value: 010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,541 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,541 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,541 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,542 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 2
+Application: GotoIf
+AppData: 0?report
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,542 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,542 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,543 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,543 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 3
+Application: ExecIf
+AppData: 1?Set(REALCALLERIDNUM=010)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,543 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,543 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: REALCALLERIDNUM
+Value: 010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,543 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,544 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,544 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,544 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,544 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,544 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 4
+Application: Set
+AppData: AMPUSER=010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,545 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,545 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: AMPUSER
+Value: 010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,545 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,545 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,546 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,546 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: user1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,546 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,546 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 5
+Application: Set
+AppData: AMPUSERCIDNAME=user1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,547 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,547 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: AMPUSERCIDNAME
+Value: user1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,547 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,547 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,548 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,548 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 6
+Application: GotoIf
+AppData: 0?report
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,548 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,548 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,548 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,549 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,549 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,549 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 7
+Application: Set
+AppData: AMPUSERCID=010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,549 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,549 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: AMPUSERCID
+Value: 010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,550 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,550 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,550 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,550 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 8
+Application: Set
+AppData: CALLERID(all)="user1" <010>
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,551 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,551 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: NewCallerid
+Privilege: call,all
+Channel: SIP/010-00000055
+CallerIDNum: 010
+CallerIDName: user1
+Uniqueid: 1346470876.85
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)
+
+
+2012-09-01 14:41:20,551 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,552 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,552 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,552 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,553 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,553 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,553 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,553 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 9
+Application: GotoIf
+AppData: 0?limit
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,554 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,554 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,554 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,554 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 10
+Application: ExecIf
+AppData: 0?Set(GROUP(concurrency_limit)=010)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,555 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,555 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,555 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,555 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,555 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,555 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,556 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,556 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 11
+Application: ExecIf
+AppData: 0?Set(CHANNEL(language)=)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,556 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,556 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,556 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,557 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,557 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,557 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,557 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,557 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: generic
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,557 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,558 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: generic
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,558 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,558 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 12
+Application: GosubIf
+AppData: 7?sub-ccss,s,1(macro-exten-vm,)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,558 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,559 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARG1)
+Value: macro-exten-vm
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,559 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,559 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARG2)
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,559 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,560 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARGC)
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,560 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,560 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: generic
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,560 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,560 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: generic
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,561 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,561 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,561 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,561 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-ccss
+Extension: s
+Priority: 1
+Application: ExecIf
+AppData: 0?Return()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,562 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,562 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,562 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,562 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-ccss
+Extension: s
+Priority: 2
+Application: Set
+AppData: CCSS_SETUP=TRUE
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,563 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,563 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: CCSS_SETUP
+Value: TRUE
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,563 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,563 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,564 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,564 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-ccss
+Extension: s
+Priority: 3
+Application: GosubIf
+AppData: 0?monitor_config,1(macro-exten-vm,):monitor_default,1(macro-exten-vm,)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,564 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,564 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARG1)
+Value: macro-exten-vm
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,565 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,565 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARG2)
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,565 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,565 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARGC)
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,565 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,565 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,566 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,566 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-ccss
+Extension: monitor_default
+Priority: 1
+Application: GotoIf
+AppData: 0?is_exten
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,566 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,566 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,566 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,566 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-ccss
+Extension: monitor_default
+Priority: 2
+Application: StackPop
+AppData: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,567 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,567 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,567 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,567 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-ccss
+Extension: monitor_default
+Priority: 3
+Application: Return
+AppData: FALSE
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,568 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,568 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: GOSUB_RETVAL
+Value: FALSE
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,568 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,568 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,569 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,569 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 13
+Application: GotoIf
+AppData: 0?continue
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,569 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,569 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,569 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,570 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 14
+Application: Set
+AppData: __TTL=64
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,570 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,570 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __TTL
+Value: 64
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,571 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,571 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,571 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,571 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 15
+Application: GotoIf
+AppData: 1?continue
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,571 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,572 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,572 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,572 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 26
+Application: Set
+AppData: CALLERID(number)=010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,572 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,573 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,573 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,575 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 27
+Application: Set
+AppData: CALLERID(name)=user1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,576 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,607 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,608 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,608 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-user-callerid
+Extension: s
+Priority: 28
+Application: Set
+AppData: CHANNEL(language)=en
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,608 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,609 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,609 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,609 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,609 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,610 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,610 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,610 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: from-internal
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,610 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,611 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,611 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,611 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,612 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,612 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 2
+Application: Set
+AppData: RingGroupMethod=none
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,612 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,612 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: RingGroupMethod
+Value: none
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,613 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,614 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,614 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,614 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 3
+Application: Set
+AppData: __EXTTOCALL=011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,614 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,615 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __EXTTOCALL
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,615 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,615 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,615 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,616 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 4
+Application: Set
+AppData: __PICKUPMARK=011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,616 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,616 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __PICKUPMARK
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,617 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,617 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,617 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,617 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 5
+Application: Set
+AppData: RT=15
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,618 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,618 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: RT
+Value: 15
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,618 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,618 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,619 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,619 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 6
+Application: Gosub
+AppData: sub-record-check,s,1(exten,011,)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,619 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,619 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARG1)
+Value: exten
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,620 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,620 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARG2)
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,620 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,620 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARG3)
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,621 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,621 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARGC)
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,621 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,621 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,621 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,622 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 1
+Application: GotoIf
+AppData: 1?check
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,622 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,622 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,622 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,623 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 6
+Application: Set
+AppData: __MON_FMT=wav
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,623 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,623 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __MON_FMT
+Value: wav
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,624 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,624 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,624 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,624 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 7
+Application: GotoIf
+AppData: 1?next
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,625 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,625 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,625 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,625 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 10
+Application: ExecIf
+AppData: 0?Return()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,626 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,626 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,626 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,627 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 11
+Application: GotoIf
+AppData: 0?exten,1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,627 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,627 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,628 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,628 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 12
+Application: Set
+AppData: __REC_STATUS=INITIALIZED
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,628 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,628 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __REC_STATUS
+Value: INITIALIZED
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,629 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,629 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,629 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,629 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 13
+Application: ExecIf
+AppData: 0?Set(__REC_POLICY_MODE=)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,630 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,630 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,630 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,630 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 14
+Application: Set
+AppData: NOW=1346470881
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,631 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,631 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: NOW
+Value: 1346470881
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,631 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,631 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,632 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,632 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 15
+Application: Set
+AppData: __DAY=01
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,632 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,632 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __DAY
+Value: 01
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,633 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,633 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,633 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,633 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 16
+Application: Set
+AppData: __MONTH=09
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,634 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,634 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __MONTH
+Value: 09
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,635 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,635 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,635 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,635 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 17
+Application: Set
+AppData: __YEAR=2012
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,636 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,636 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __YEAR
+Value: 2012
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,636 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,636 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,637 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,637 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 18
+Application: Set
+AppData: __TIMESTR=20120901-144121
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,638 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,638 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __TIMESTR
+Value: 20120901-144121
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,638 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,638 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,639 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,639 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 19
+Application: Set
+AppData: __FROMEXTEN=010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,639 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,639 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __FROMEXTEN
+Value: 010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,640 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,640 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,640 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,640 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 20
+Application: Set
+AppData: __CALLFILENAME=exten-011-010-20120901-144121-1346470876.85
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,641 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,641 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __CALLFILENAME
+Value: exten-011-010-20120901-144121-1346470876.85
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,641 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,641 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,642 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,642 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: s
+Priority: 21
+Application: Goto
+AppData: exten,1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,642 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,642 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,643 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,643 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: exten
+Priority: 1
+Application: GotoIf
+AppData: 0?callee
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,643 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,643 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,644 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,644 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: dontcare
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,644 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,645 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: dontcare
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,645 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,645 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: exten
+Priority: 2
+Application: Set
+AppData: __REC_POLICY_MODE=dontcare
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,645 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,646 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __REC_POLICY_MODE
+Value: dontcare
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,646 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,646 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,646 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,647 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: exten
+Priority: 3
+Application: GotoIf
+AppData: 1?caller
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,647 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,648 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,648 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,648 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: dontcare
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,648 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,649 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: exten
+Priority: 10
+Application: Set
+AppData: REC_POLICY_MODE=dontcare
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,649 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,649 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: REC_POLICY_MODE
+Value: dontcare
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,649 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,650 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,650 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,650 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: exten
+Priority: 11
+Application: GosubIf
+AppData: 0?record,1(exten,011,010)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,650 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,650 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,651 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,651 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: sub-record-check
+Extension: exten
+Priority: 12
+Application: Return
+AppData: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,651 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,651 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: GOSUB_RETVAL
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,652 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,652 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,652 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,652 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: disabled
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,653 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,653 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 7
+Application: GotoIf
+AppData: 1?macrodial
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,653 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,653 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,654 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,654 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 13
+Application: GosubIf
+AppData: 0?clrheader,1()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,654 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,655 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,655 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,655 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-exten-vm
+Extension: s
+Priority: 14
+Application: Macro
+AppData: dial-one,15,tr,011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,655 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,655 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,656 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,656 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: macro-exten-vm
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,656 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,656 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 14
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,657 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,657 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,658 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,658 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 15
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,658 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,658 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG2
+Value: tr
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,659 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,659 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG3
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,659 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,659 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,660 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,660 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 1
+Application: Set
+AppData: DEXTEN=011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,662 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,663 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DEXTEN
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,663 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,663 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,663 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,664 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 2
+Application: Set
+AppData: DIALSTATUS_CW=
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,664 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,664 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DIALSTATUS_CW
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,664 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,665 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,665 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,665 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 3
+Application: GosubIf
+AppData: 0?screen,1()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,665 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,666 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,666 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,666 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 4
+Application: GosubIf
+AppData: 0?cf,1()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,666 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,667 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,667 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,667 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 5
+Application: GotoIf
+AppData: 1?skip1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,667 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,668 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,668 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,668 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 8
+Application: GotoIf
+AppData: 0?nodial
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,669 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,669 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,669 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,669 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 9
+Application: GotoIf
+AppData: 0?continue
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,670 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,670 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,670 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,670 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: ENABLED
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,671 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,671 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 10
+Application: Set
+AppData: EXTHASCW=ENABLED
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,671 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,671 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: EXTHASCW
+Value: ENABLED
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,672 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,672 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,672 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,672 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 11
+Application: GotoIf
+AppData: 0?next1:cwinusebusy
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,672 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,673 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,673 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,673 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 23
+Application: GotoIf
+AppData: 1?next3:continue
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,673 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,674 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,674 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,674 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 24
+Application: ExecIf
+AppData: 0?Set(DIALSTATUS_CW=BUSY)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,674 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,675 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,675 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,675 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 25
+Application: GotoIf
+AppData: 0?nodial
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,675 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,675 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,676 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,676 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 26
+Application: GosubIf
+AppData: 1?dstring,1():dlocal,1()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,676 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,676 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARGC)
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,677 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,677 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,677 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,677 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 1
+Application: Set
+AppData: DSTRING=
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,678 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,678 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DSTRING
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,678 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,678 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,679 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,679 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,679 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,679 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 2
+Application: Set
+AppData: DEVICES=011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,680 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,680 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DEVICES
+Value: 011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,680 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,680 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,681 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,681 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 3
+Application: ExecIf
+AppData: 0?Return()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,681 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,681 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,682 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,682 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 4
+Application: ExecIf
+AppData: 0?Set(DEVICES=11)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,682 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,682 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,683 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,683 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 5
+Application: Set
+AppData: LOOPCNT=1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,683 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,683 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOOPCNT
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,684 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,684 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,685 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,685 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 6
+Application: Set
+AppData: ITER=1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,685 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,685 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ITER
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,686 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,686 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,686 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,686 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,687 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,687 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 7
+Application: Set
+AppData: THISDIAL=SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,687 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,688 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: THISDIAL
+Value: SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,688 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,688 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,688 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,688 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 8
+Application: GosubIf
+AppData: 1?zap2dahdi,1()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,689 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,689 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARGC)
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,689 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,689 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,690 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,690 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 1
+Application: ExecIf
+AppData: 0?Return()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,690 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,691 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,691 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,691 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 2
+Application: Set
+AppData: NEWDIAL=
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,691 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,692 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: NEWDIAL
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,692 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,692 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,692 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,693 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 3
+Application: Set
+AppData: LOOPCNT2=1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,693 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,693 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOOPCNT2
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,693 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,694 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,694 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,694 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 4
+Application: Set
+AppData: ITER2=1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,695 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,695 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ITER2
+Value: 1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,695 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,696 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,696 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,696 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 5
+Application: Set
+AppData: THISPART2=SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,697 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,697 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: THISPART2
+Value: SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,697 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,697 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,698 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,698 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 6
+Application: ExecIf
+AppData: 0?Set(THISPART2=DAHDI/011)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,698 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,699 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,699 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,699 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 7
+Application: Set
+AppData: NEWDIAL=SIP/011&
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,699 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,700 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: NEWDIAL
+Value: SIP/011&
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,700 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,700 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,700 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,700 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 8
+Application: Set
+AppData: ITER2=2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,701 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,701 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ITER2
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,701 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,701 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,702 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,702 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 9
+Application: GotoIf
+AppData: 0?begin2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,702 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,702 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,703 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,703 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 10
+Application: Set
+AppData: THISDIAL=SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,703 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,703 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: THISDIAL
+Value: SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,704 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,704 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,704 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,704 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: zap2dahdi
+Priority: 11
+Application: Return
+AppData: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,705 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,705 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: GOSUB_RETVAL
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,705 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,706 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,706 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,706 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 9
+Application: Set
+AppData: DSTRING=SIP/011&
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,707 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,707 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DSTRING
+Value: SIP/011&
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,707 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,707 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,708 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,708 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 10
+Application: Set
+AppData: ITER=2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,708 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,708 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ITER
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,709 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,709 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,709 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,709 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 11
+Application: GotoIf
+AppData: 0?begin
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,710 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,710 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,710 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,710 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 12
+Application: Set
+AppData: DSTRING=SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,711 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,711 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DSTRING
+Value: SIP/011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,711 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,711 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,712 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,712 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: dstring
+Priority: 13
+Application: Return
+AppData: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,712 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,712 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: GOSUB_RETVAL
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,713 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,713 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,713 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,714 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 27
+Application: GotoIf
+AppData: 0?nodial
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,714 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,714 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,714 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,715 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 28
+Application: GotoIf
+AppData: 0?skiptrace
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,715 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,715 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,716 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,716 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 29
+Application: GosubIf
+AppData: 1?ctset,1():ctclear,1()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,716 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,716 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: LOCAL(ARGC)
+Value: 0
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,717 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,717 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,717 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,717 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: ctset
+Priority: 1
+Application: Set
+AppData: DB(CALLTRACE/011)=010
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,718 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,718 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,718 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,718 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: ctset
+Priority: 2
+Application: Return
+AppData: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,719 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,719 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: GOSUB_RETVAL
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,719 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,719 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,720 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,720 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 30
+Application: Set
+AppData: D_OPTIONS=tr
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,720 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,720 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: D_OPTIONS
+Value: tr
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,721 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,721 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,721 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,721 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 31
+Application: ExecIf
+AppData: 0?SIPAddHeader(Alert-Info: )
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,722 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,722 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,723 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,723 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 32
+Application: ExecIf
+AppData: 0?SIPAddHeader()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,723 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,723 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,724 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,724 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 33
+Application: ExecIf
+AppData: 0?Set(CHANNEL(musicclass)=)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,725 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,725 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,726 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,726 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 34
+Application: GosubIf
+AppData: 0?qwait,1()
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,726 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,726 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,727 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,727 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 35
+Application: Set
+AppData: __CWIGNORE=
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,727 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,727 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __CWIGNORE
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,728 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,728 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,728 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,728 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 36
+Application: Set
+AppData: __KEEPCID=TRUE
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,729 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,729 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: __KEEPCID
+Value: TRUE
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,729 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,729 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,730 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,730 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 37
+Application: GotoIf
+AppData: 0?usegoto,1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,730 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,730 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,731 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,731 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: user2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,731 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,732 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: user1
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,732 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,732 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 38
+Application: GotoIf
+AppData: 0?godial
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,732 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,733 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,733 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,733 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: user2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,733 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,734 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 39
+Application: Set
+AppData: CONNECTEDLINE(name,i)=user2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,734 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,734 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,734 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,735 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 40
+Application: Set
+AppData: CONNECTEDLINE(num)=011
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,735 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,736 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,736 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,736 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 41
+Application: Set
+AppData: D_OPTIONS=trI
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,736 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,737 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: D_OPTIONS
+Value: trI
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,737 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,737 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,737 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,738 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 42
+Application: ExecIf
+AppData: 1?Macro(CHECK_DEVICE_STATE,)
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,738 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,738 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,739 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,739 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: macro-dial-one
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,739 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,739 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 42
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,740 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,740 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,740 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,740 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,741 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,741 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,741 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,742 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-CHECK_DEVICE_STATE
+Extension: s
+Priority: 1
+Application: NoOp
+AppData: DEVICE STATE - NOT_INUSE
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,742 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,742 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,743 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,743 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-CHECK_DEVICE_STATE
+Extension: s
+Priority: 2
+Application: GotoIf
+AppData: 0?busy:exit
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,743 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,743 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,744 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,744 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-CHECK_DEVICE_STATE
+Extension: s
+Priority: 5
+Application: MacroExit
+AppData: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,745 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,745 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,746 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,746 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 15
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,746 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,746 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,747 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,747 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: macro-exten-vm
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,748 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,748 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 14
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,749 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,749 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,749 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,749 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 43
+Application: Macro
+AppData: JABBER_SEND_NEWCALL,
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,750 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,750 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,750 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,750 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: macro-dial-one
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,751 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,751 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 43
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,751 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,751 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,752 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,752 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,752 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,752 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,753 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,753 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DB_RESULT
+Value: user2@avanpbx
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,753 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,754 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-JABBER_SEND_NEWCALL
+Extension: s
+Priority: 1
+Application: Set
+AppData: JID=user2@avanpbx
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,754 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,754 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: JID
+Value: user2@avanpbx
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,754 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,755 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,755 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,755 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-JABBER_SEND_NEWCALL
+Extension: s
+Priority: 2
+Application: GotoIf
+AppData: 0?end
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,755 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,756 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,756 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,756 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-JABBER_SEND_NEWCALL
+Extension: s
+Priority: 3
+Application: System
+AppData: /bin/echo -e "user1\n<010>" | sendxmpp --message-type=headline -f /etc/.sendxmpprc user2@avanpbx &
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,757 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,757 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: SYSTEMSTATUS
+Value: SUCCESS
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,757 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,758 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 3
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,758 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,758 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-JABBER_SEND_NEWCALL
+Extension: s
+Priority: 4
+Application: MacroExit
+AppData: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,758 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,759 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,759 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,759 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ARG1
+Value: 15
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,759 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,759 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_EXTEN
+Value: s
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,760 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,760 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_CONTEXT
+Value: macro-exten-vm
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,760 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,760 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_PRIORITY
+Value: 14
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,761 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,761 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: MACRO_DEPTH
+Value: 2
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,761 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,761 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newexten
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Context: macro-dial-one
+Extension: s
+Priority: 44
+Application: Dial
+AppData: SIP/011,15,trI
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,762 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,762 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DIALSTATUS
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,762 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,762 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DIALEDPEERNUMBER
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,763 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,763 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DIALEDPEERNAME
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,763 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,763 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: ANSWEREDTIME
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,764 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,767 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/010-00000055
+Variable: DIALEDTIME
+Value: 
+Uniqueid: 1346470876.85
+
+
+2012-09-01 14:41:20,767 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,767 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Newchannel
+Privilege: call,all
+Channel: SIP/011-00000056
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 011
+CallerIDName: user2
+AccountCode: 
+Exten: 
+Context: from-internal
+Uniqueid: 1346470881.86
+
+
+2012-09-01 14:41:20,768 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,768 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/011-00000056
+Variable: SIPCALLID
+Value: 257c6cf36e9adccf7f0c6756604fbeb0@192.168.1.240:5060
+Uniqueid: 1346470881.86
+
+
+2012-09-01 14:41:20,768 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,769 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/011-00000056
+Variable: DIALEDPEERNUMBER
+Value: 011
+Uniqueid: 1346470881.86
+
+
+2012-09-01 14:41:20,769 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,769 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: ExtensionStatus
+Privilege: call,all
+Exten: 011
+Context: ext-local
+Hint: SIP/011
+Status: 8
+
+
+2012-09-01 14:41:20,769 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,770 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: Dial
+Privilege: call,all
+SubEvent: Begin
+Channel: SIP/010-00000055
+Destination: SIP/011-00000056
+CallerIDNum: 010
+CallerIDName: user1
+ConnectedLineNum: 011
+ConnectedLineName: user2
+UniqueID: 1346470876.85
+DestUniqueID: 1346470881.86
+Dialstring: 011
+
+
+2012-09-01 14:41:20,771 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:20,802 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
 Event: Newstate
 Privilege: call,all
-Channel: SIP/011-0000000e
-ChannelState: 6
-ChannelStateDesc: Up
+Channel: SIP/011-00000056
+ChannelState: 5
+ChannelStateDesc: Ringing
 CallerIDNum: 011
 CallerIDName: user2
 ConnectedLineNum: 010
-ConnectedLineName: nimdraug
-Uniqueid: 1346387573.14
+ConnectedLineName: user1
+Uniqueid: 1346470881.86
 
-2012-08-31 15:38:42,908 [DEBUG] Pami.ClientImpl: ----------------
-2012-08-31 15:38:42,908 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
-Event: Bridge
-Privilege: call,all
-Bridgestate: Link
-Bridgetype: core
-Channel1: SIP/010-0000000d
-Channel2: SIP/011-0000000e
-Uniqueid1: 1346387571.13
-Uniqueid2: 1346387573.14
-CallerID1: 010
-CallerID2: 011
+
+2012-09-01 14:41:20,802 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:22,060 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <presence type="unavailable" from="pbx@avanpbx/sendxmpp" to="pbx@avanpbx/asterisk"/>
+
+
+2012-09-01 14:41:22,060 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-01 14:41:22,060 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberStatus
+Privilege: user,all
+Account: pbx
+JID: pbx@avanpbx
+Status: 0
+
+
+2012-09-01 14:41:22,061 [DEBUG] Pami.ClientImpl: ----------------
