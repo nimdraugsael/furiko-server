@@ -124,11 +124,16 @@
 		            		$oa->setContext("from-internal");
 		            		$oa->setPriority("1");
 		            		$oa->setCallerId($from);
-		            		$response = $pamiClient->send($oa);
-		            		$originating_calls[] = array(	'from_ext' => $from_ext,
-		            										'with_ext' => $with_ext );
-		            		$response_array = array(	'Action' => 'OutgoingCall', 
-		                								'Success' => $response->isSuccess() );
+		            		try {
+		            			$response = $pamiClient->send($oa);
+			            		$originating_calls[] = array(	'from_ext' => $from_ext,
+			            										'with_ext' => $with_ext );
+			            		$response_array = array(	'Action' => 'OutgoingCall', 
+			                								'Success' => $response->isSuccess() );
+		            		} catch (Exception $e) {
+		            			$response_array = array(	'Action' => 'OutgoingCall', 
+			                								'Success' => false );		            		
+		            		}
 	            		}
 	            		else 
 	            		{
@@ -247,17 +252,15 @@
 	    'username' => 'furiko',        
 	    'secret' => '123456',       
 	    'connect_timeout' => 10000,   
-	    'read_timeout' => 100
+	    'read_timeout' => 10000
 	);  
 	
 	$pamiClient = new PamiClient($pamiClientOptions);  
 	// Open the connection  
+	$pamiClient->open();
+
 	$pamiClient->registerEventListener(  
 	    function (EventMessage $event) {
-				// echo "event:\n";  
-				// print_r($event);
-				// echo "EMPTY? -> |" . $event->getName() . "|\n";   
-	        // var_dump($event);
 	        if ($event instanceof PAMI\Message\Event\BridgeEvent)
 	        {
 	        	global $originating_calls;
@@ -345,10 +348,9 @@
 	        	}
 	        } 
 	    }
-	    );  
+    );  
 	
 	// register_tick_function(array($pamiClient, 'process'));
-	$pamiClient->open();  
 
 	$db = new Database();
 
