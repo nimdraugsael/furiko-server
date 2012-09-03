@@ -100,15 +100,15 @@ class JAXLLoop {
 		_debug("active read fds: ".self::$active_read_fds.", write fds: ".self::$active_write_fds);
 	}
 	
-	public static function run() {
+	public static function run($pami_client) {
 		if(!self::$is_running) {
 			self::$is_running = true;
 			self::$clock = new JAXLClock();
-			
+
 			while((self::$active_read_fds + self::$active_write_fds) > 0) {
 				self::select();
+				if ($pami_client != null) $pami_client->process();
 			}
-			
 			_debug("no more active fd's to select");
 		}
 	}

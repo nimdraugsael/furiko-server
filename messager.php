@@ -8,7 +8,7 @@
 	use PAMI\Message\Action\OriginateAction;
 	use PAMI\Message\Event\EventMessage;
 
-	// declare(ticks=1);
+	declare(ticks=1);
 
 	require 'JAXL/jaxl.php';
 
@@ -240,7 +240,7 @@
 
 	date_default_timezone_set('Asia/Vladivostok');
 	$pamiClientOptions = array(  
-			'log4php.properties' => __DIR__ . '/log4php.properties',  
+		'log4php.properties' => __DIR__ . '/log4php.properties',  
 	    'host' => 'avanpbx',        
 	    'scheme' => 'tcp://',         
 	    'port' => 5038,               
@@ -252,7 +252,6 @@
 	
 	$pamiClient = new PamiClient($pamiClientOptions);  
 	// Open the connection  
-	$pamiClient->open();  
 	$pamiClient->registerEventListener(  
 	    function (EventMessage $event) {
 				// echo "event:\n";  
@@ -349,6 +348,7 @@
 	    );  
 	
 	// register_tick_function(array($pamiClient, 'process'));
+	$pamiClient->open();  
 
 	$db = new Database();
 
@@ -362,46 +362,59 @@
 		'0199'	// XMPP Ping
 	));
 
-	$xmpp_client->start();
 
-	// $ref = JAXLLoop::$clock->call_fun_periodic(100)
-	// $connected = true;
+	function do_job()
+	{
+		echo "tick\n";		
+	}
+
+	$connected = true;
+
+	// if (isset(JAXLLoop::$clock)) 
+		// $ref = JAXLLoop::$clock->call_fun_after(1000, 'do_job', null);
+	// echo $ref;
+
 	
-	// $xmpp_client->add_cb('on_auth_failure', function($reason) {
-	// 	global $xmpp_client;
-	// 	$xmpp_client->send_end_stream();
-	// 	_info("CALLBACK! got on_auth_failure cb with reason $reason");
-	// });
+	$xmpp_client->add_cb('on_auth_failure', function($reason) {
+		global $xmpp_client;
+		$xmpp_client->send_end_stream();
+		_info("CALLBACK! got on_auth_failure cb with reason $reason");
+	});
 
-	// $xmpp_client->add_cb('on_connect_error', function($reason) {
-	// 	_info("connect error $reason");
-	// });
+	$xmpp_client->add_cb('on_connect_error', function($reason) {
+		_info("connect error $reason");
+	});
   
-	// $xmpp_client->add_cb('on_auth_success', function() {
-	// 	_info("connected!!");
-	// 	global $xmpp_client;
-	// 	$xmpp_client->set_status("available!", "dnd", 10);
-	// });
+	$xmpp_client->add_cb('on_auth_success', function() {
+		_info("connected!!");
+		global $xmpp_client;
+		$xmpp_client->set_status("available!", "dnd", 10);
+	});
 
-	// $xmpp_client->add_cb('on_disconnect', function() {
-	// 	_info("disconnected!!");
-	// 	// _info("reconnecting");
-	// 	// global $xmpp_client;
-	// 	// $xmpp_client->con();
-	// 	// global $xmpp_client;
-	// 	// $xmpp_client->set_status("available!", "dnd", 10);
-	// });
+	$xmpp_client->add_cb('on_disconnect', function() {
+		_info("disconnected!!");
+		// _info("reconnecting");
+		// global $xmpp_client;
+		// $xmpp_client->con();
+		// global $xmpp_client;
+		// $xmpp_client->set_status("available!", "dnd", 10);
+	});
 
-	// $xmpp_client->add_cb('on_chat_message', function($stanza) {
-	// 	global $xmpp_client;
-	// 	processMessage($stanza);
-	// });
+	$xmpp_client->add_cb('on_chat_message', function($stanza) {
+		global $xmpp_client;
+		// var_dump($stanza);
+		processMessage($stanza);
+	});
+
+	$xmpp_client->start(null, $pamiClient);
+
+	while (1) {}
 
 	// try {
-	// 	$xmpp_client->start();
+		// $xmpp_client->start();
 	// } catch (PAMI\Client\Exception\ClientException $e) {
-	// 	$pamiClient->open();
-	// 	$xmpp_client->start();	
+		// $pamiClient->open();
+		// $xmpp_client->start();	
 	// }
 
 	// try {
