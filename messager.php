@@ -8,7 +8,7 @@
 	use PAMI\Message\Action\OriginateAction;
 	use PAMI\Message\Event\EventMessage;
 
-	declare(ticks=1);
+	// declare(ticks=1);
 
 	require 'JAXL/jaxl.php';
 
@@ -32,117 +32,127 @@
 		global $users;
 		global $originating_calls;
 		$msg_type = "headline";
+
+		$error_401 = array(	'Action' => 'Error',
+											 	'ErrorCode' => '401',
+											 	'ErrorMessage' => 'Not registered. Handshake first');
+
 		// $users['nimdraugtest@avanpbx'] = '011';
 		// $users['nimdraug@avanpbx'] = '010';
 		// var_dump($users);
 		// $body = $msg['body'];
 		$body = str_replace("&quot;", '"', $stanza->body);
 
-		echo "body :> $body";
-	    $request = json_decode($body, true);
-	    $from = bare_jid($stanza->from);
-	    echo bare_jid($stanza->from);
-	    // --
-	    // unset( $request );
-	    if ( isset($request) ) 
-	    {
-	    	if ( isset($request['Action']) )
-	    		switch($request['Action']) {
-	            case 'Handshake':
-	                $ext = $db->getExtension($from);
-	                
-	            	$response_array = array(	'Action' => 'Handshake', 
-	                							'Success' => True,
-	                							'Extension' => $ext );
-	                $response = json_encode($response_array);
-	                $users[$from] = $ext;
-              		sendMessage($from, $response);
-	            break;
-	            case 'History':
-	            	if (isset($users[$from]))
-	            	{
-	            		if ( isset($request['With']) )
+		// echo "body :> $body";
+    $request = json_decode($body, true);
+    $from = bare_jid($stanza->from);
+    // echo bare_jid($stanza->from);
+    // --
+    // unset( $request );
+    if ( isset($request) ) 
+    {
+    	if ( isset($request['Action']) )
+    		switch($request['Action']) {
+            case 'Handshake':
+              $ext = $db->getExtension($from);
+                
+            	$response_array = array(	'Action' => 'Handshake', 
+                							'Success' => True,
+                							'Extension' => $ext );
+              $response = json_encode($response_array);
+              $users[$from] = $ext;
+            	sendMessage($from, $response);
+            break;
+            case 'Goodbye':
+          		unset($users[$from]);
+            	$response_array = array(	'Action' => 'Goodbye', 
+                							'Success' => True );
+              $response = json_encode($response_array);
+          		sendMessage($from, $response);
+          	break;
+            
+            break;
+            case 'History':
+            	if (isset($users[$from]))
+            	{
+            		if ( isset($request['With']) )
+            		{
+	            		$from = bare_jid($from);
+	            		$with = $request['With'];
+	            		// echo "getHistory: from $from , with $with";
+	            		$history = $db->getHistory($from, $with);
+	            		if ($history)
 	            		{
-		            		$from = bare_jid($from);
-		            		$with = $request['With'];
-		            		// echo "getHistory: from $from , with $with";
-		            		$history = $db->getHistory($from, $with);
-		            		if ($history)
-		            		{
-			            		$response_array = array(	'Action' => 'History', 
-			                								'Success' => True,
-			                								'History' => $history );
-		            		}
-		            		else
-		            		{
-			            		$response_array = array(	'Action' => 'History', 
-				                							'Success' => False,
-				                							'Error' => 'No history' );		            			
-		            		}
+		            		$response_array = array(	'Action' => 'History', 
+		                								'Success' => True,
+		                								'History' => $history );
 	            		}
 	            		else
 	            		{
-	            			$response_array = array(	'Action' => 'History', 
-	                									'Success' => False,
-	                									'Error' => "Need 'with' parameter" );	
+		            		$response_array = array(	'Action' => 'History', 
+			                							'Success' => False,
+			                							'Error' => 'No history for entry' );		            			
 	            		}
-	            	}
-	            	else
-	            	{
-	            		$response_array = array(	'Action' => 'History', 
-	                								'Success' => False,
-	                								'Error' => "Not registered, Handshake first" );	
-	            	}
-	                $response = json_encode($response_array);
-              		sendMessage($from, $response);
-	            break;
-	            case 'OutgoingCall':
-	            	if (isset($users[$from]))
-	            	{
-	            		if ( isset($request['With']) )
+            		}
+            		else
+            		{
+            			$response_array = array(	'Action' => 'History', 
+                									'Success' => False,
+                									'Error' => "Need 'with' parameter" );	
+            		}
+            	}
+            	else
+            	{
+            		$response_array = $error_401;
+            	}
+                $response = json_encode($response_array);
+            		sendMessage($from, $response);
+            break;
+            case 'OutgoingCall':
+            	if (isset($users[$from]))
+            	{
+            		if ( isset($request['With']) )
+            		{
+	            		$with = $request['With'];
+	            		// echo "getHistory: from $from , with $with";
+	            		$from_ext = $db->getExtension($from);
+	            		$with_ext = $db->getExtension($with);
+	            		if ( ($from_ext) && ($with_ext) )
 	            		{
-		            		$with = $request['With'];
-		            		// echo "getHistory: from $from , with $with";
-		            		$from_ext = $db->getExtension($from);
-		            		$with_ext = $db->getExtension($with);
-		            		if ( ($from_ext) && ($with_ext) )
-		            		{
-			            		$oa = new OriginateAction("SIP/$from_ext");
-			            		$oa->setExtension($with_ext);
-			            		$oa->setContext("from-internal");
-			            		$oa->setPriority("1");
-			            		$oa->setCallerId($from);
-			            		$response = $pamiClient->send($oa);
-			            		$originating_calls[] = array(	'from_ext' => $from_ext,
-			            										'with_ext' => $with_ext );
-			            		$response_array = array(	'Action' => 'OutgoingCall', 
-			                								'Success' => $response->isSuccess() );
-		            		}
-		            		else 
-		            		{
-		            			$response_array = array(	'Action' => 'OutgoingCall', 
-			                													'Success' => false,
-			                													'Error' => 'Cannot find extensions' );
-		            		}
+		            		$oa = new OriginateAction("SIP/$from_ext");
+		            		$oa->setExtension($with_ext);
+		            		$oa->setContext("from-internal");
+		            		$oa->setPriority("1");
+		            		$oa->setCallerId($from);
+		            		$response = $pamiClient->send($oa);
+		            		$originating_calls[] = array(	'from_ext' => $from_ext,
+		            										'with_ext' => $with_ext );
+		            		$response_array = array(	'Action' => 'OutgoingCall', 
+		                								'Success' => $response->isSuccess() );
 	            		}
-	            		else
+	            		else 
 	            		{
 	            			$response_array = array(	'Action' => 'OutgoingCall', 
-	                									'Success' => False,
-	                									'Error' => "Need 'with' parameter" );	
-	   					}
-	            	}
-	            	else
-	            	{
-	            		$response_array = array(	'Action' => 'OutgoingCall', 
-	                								'Success' => False,
-	                								'Error' => "Not registered, Handshake first" );	
-	            	}
-	                $response = json_encode($response_array);
-              		sendMessage($from, $response);
-	            break;
-	        }
-	    }
+		                													'Success' => false,
+		                													'Error' => '401' );
+	            		}
+            		}
+            		else
+            		{
+            			$response_array = array(	'Action' => 'OutgoingCall', 
+                									'Success' => False,
+                									'Error' => "Need 'with' parameter" );	
+		   					}
+            	}
+            	else
+            	{
+            		$response = $error_401;
+            	}
+                $response = json_encode($response_array);
+            		sendMessage($from, $response);
+            break;
+        }
+    }
 	}
 
 	function bare_jid($jid)
@@ -230,16 +240,15 @@
 
 	date_default_timezone_set('Asia/Vladivostok');
 	$pamiClientOptions = array(  
-		'log4php.properties' => __DIR__ . '/log4php.properties',  
+			'log4php.properties' => __DIR__ . '/log4php.properties',  
 	    'host' => 'avanpbx',        
 	    'scheme' => 'tcp://',         
 	    'port' => 5038,               
 	    'username' => 'furiko',        
 	    'secret' => '123456',       
 	    'connect_timeout' => 10000,   
-	    'read_timeout' => 10000      
+	    'read_timeout' => 100
 	);  
-
 	
 	$pamiClient = new PamiClient($pamiClientOptions);  
 	// Open the connection  
@@ -339,7 +348,7 @@
 	    }
 	    );  
 	
-	register_tick_function(array($pamiClient, 'process'));
+	// register_tick_function(array($pamiClient, 'process'));
 
 	$db = new Database();
 
@@ -349,41 +358,56 @@
 			'host' => 'avanpbx:5222'
 		));
 
-	$connected = true;
+	$xmpp_client->require_xep(array(
+		'0199'	// XMPP Ping
+	));
+
+	$xmpp_client->start();
+
+	// $ref = JAXLLoop::$clock->call_fun_periodic(100)
+	// $connected = true;
 	
-	$xmpp_client->add_cb('on_auth_failure', function($reason) {
-		global $xmpp_client;
-		$xmpp_client->send_end_stream();
-		_info("CALLBACK! got on_auth_failure cb with reason $reason");
-	});
+	// $xmpp_client->add_cb('on_auth_failure', function($reason) {
+	// 	global $xmpp_client;
+	// 	$xmpp_client->send_end_stream();
+	// 	_info("CALLBACK! got on_auth_failure cb with reason $reason");
+	// });
 
-	$xmpp_client->add_cb('on_connect_error', function($reason) {
-		_info("connect error $reason");
-	});
+	// $xmpp_client->add_cb('on_connect_error', function($reason) {
+	// 	_info("connect error $reason");
+	// });
   
-	$xmpp_client->add_cb('on_auth_success', function() {
-		_info("connected!!");
-		global $xmpp_client;
-		$xmpp_client->set_status("available!", "dnd", 10);
-	});
+	// $xmpp_client->add_cb('on_auth_success', function() {
+	// 	_info("connected!!");
+	// 	global $xmpp_client;
+	// 	$xmpp_client->set_status("available!", "dnd", 10);
+	// });
 
-	$xmpp_client->add_cb('on_chat_message', function($stanza) {
-		global $xmpp_client;
-		processMessage($stanza);
-	});
+	// $xmpp_client->add_cb('on_disconnect', function() {
+	// 	_info("disconnected!!");
+	// 	// _info("reconnecting");
+	// 	// global $xmpp_client;
+	// 	// $xmpp_client->con();
+	// 	// global $xmpp_client;
+	// 	// $xmpp_client->set_status("available!", "dnd", 10);
+	// });
 
-	try {
-		$xmpp_client->start();
-	} catch (Exception $e) {
-		echo $e."\n";
-		echo "rebooting\n";
-		$xmpp_client->start();	
-	}
+	// $xmpp_client->add_cb('on_chat_message', function($stanza) {
+	// 	global $xmpp_client;
+	// 	processMessage($stanza);
+	// });
 
-	try {
-		$pamiClient->close();  
-	} catch (Exception $e) {
-		echo "Exception!";	
-	}
+	// try {
+	// 	$xmpp_client->start();
+	// } catch (PAMI\Client\Exception\ClientException $e) {
+	// 	$pamiClient->open();
+	// 	$xmpp_client->start();	
+	// }
+
+	// try {
+	// 	$pamiClient->close();  
+	// } catch (Exception $e) {
+	// 	echo "Exception!";	
+	// }
 
 ?>

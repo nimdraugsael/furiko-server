@@ -44,28 +44,18 @@ if($argc < 3) {
 //
 // initialize JAXL object with initial config
 //
-require_once 'jaxl.php';
+
+
+
+require_once '../jaxl.php';
+
+date_default_timezone_set('Asia/Vladivostok');
+
+
 $client = new JAXL(array(
 	// (required) credentials
 	'jid' => $argv[1],
 	'pass' => $argv[2],
-	
-	// (optional) srv lookup is done if not provided
-	//'host' => 'xmpp.domain.tld',
-
-	// (optional) result from srv lookup used by default
-	//'port' => 5222,
-
-	// (optional) defaults to false
-	//'force_tls' => true,
-
-	// (optional)
-	//'resource' => 'resource',
-	
-	// (optional) defaults to PLAIN if supported, else other methods will be automatically tried
-	'auth_type' => @$argv[3] ? $argv[3] : 'PLAIN',
-	
-	'log_level' => JAXL_INFO
 ));
 
 //
@@ -137,8 +127,8 @@ $client->add_cb('on_disconnect', function() {
 //
 
 $client->start(array(
-	'--with-debug-shell' => true,
-	'--with-unix-sock' => true
+	// '--with-debug-shell' => true,
+	// '--with-unix-sock' => true
 ));
 echo "done\n";
 

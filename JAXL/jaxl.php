@@ -321,7 +321,7 @@ class JAXL extends XMPPStream {
 		$this->send($pkt);
 	}
 	
-	public function start($opts=array(), $pami_connection=null) {
+	public function start($opts=array()) {
 		// injection for pami_connection
 		// is bosh bot?
 		if(@$this->cfg['bosh_url']) {
@@ -333,7 +333,8 @@ class JAXL extends XMPPStream {
 				while(sizeof($this->trans->chs) != 0) {
 					$this->trans->recv();
 				}
-				
+				// echo "eee";
+
 				// if no request in queue, ping bosh end point
 				// and repeat recv
 				$this->trans->ping();
@@ -356,11 +357,11 @@ class JAXL extends XMPPStream {
 			$this->ev->emit('on_connect');
 			
 			// parse opts
-			// if(@$opts['--with-debug-shell']) $this->enable_debug_shell();
-			// if(@$opts['--with-unix-sock']) $this->enable_unix_sock();
+			if(@$opts['--with-debug-shell']) $this->enable_debug_shell();
+			if(@$opts['--with-unix-sock']) $this->enable_unix_sock();
 			
 			// run main loop
-			JAXLLoop::run($pami_connection);
+			JAXLLoop::run();
 			
 			// emit
 			$this->ev->emit('on_disconnect');
