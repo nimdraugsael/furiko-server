@@ -1,4 +1,8 @@
 This is Furiko-server script
+-------
+It php daemon-like script, connecting to Asterisk through AMI and communicating with clients through XMPP protocol.
+Using PAMI and JAXL, as you see.
+-------
 Run: "php furiko-server.php"
 Add "php %PATH_TO_FURIKO_SERVER%/furiko-server.php" to rc.local
 -------
