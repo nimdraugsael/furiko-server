@@ -402,9 +402,9 @@
 
 	$db = new Database();
 	$astdb = new AsteriskDB();
-	echo "\nget ext\n"
+	echo "\nget ext\n";
 	$astdb->getExtension("nimdraug@avanpx");
-	echo "\nget jid\n"
+	echo "\nget jid\n";
 	$astdb->getExtension("010");
 	echo "\n\n";
 
