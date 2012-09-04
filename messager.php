@@ -196,6 +196,7 @@
 		public function getExtension($jid)
 		{
 			$list = $this->getList();
+			var_dump($list);
 			if ($list) {
 				if (isset($list[$jid])) {
 					return $list[$jid];
@@ -206,6 +207,7 @@
 		public function getJid($extension)
 		{
 			$list = $this->getList();
+			var_dump($list);
 			if ($list) {
 				return array_search($extension, $getList());	
 			}
@@ -405,7 +407,7 @@
 	echo "\nget ext\n";
 	$astdb->getExtension("nimdraug@avanpx");
 	echo "\nget jid\n";
-	$astdb->getExtension("010");
+	$astdb->getJid("010");
 	echo "\n\n";
 
 	$xmpp_client = new JAXL(array(
