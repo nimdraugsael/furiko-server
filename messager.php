@@ -404,9 +404,9 @@
 	$db = new Database();
 	$astdb = new AsteriskDB();
 	echo "\nget ext\n";
-	$astdb->getExtension("nimdraug@avanpbx");
+	echo $astdb->getExtension("nimdraug@avanpbx");
 	echo "\nget jid\n";
-	$astdb->getJid("010");
+	echo $astdb->getJid("010");
 	echo "\n\n";
 
 	$xmpp_client = new JAXL(array(
