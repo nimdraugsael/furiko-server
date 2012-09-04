@@ -1,0 +1,5 @@
+This is Furiko-server script
+Run: "php furiko-server.php"
+Add "php %PATH_TO_FURIKO_SERVER%/furiko-server.php" to rc.local
+-------
+contact me: nimdraug.sael@gmail.com
