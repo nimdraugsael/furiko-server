@@ -183,7 +183,6 @@
 				$fd=fopen("/tmp/asterisk_jid_list.txt","r");
 				while ($line=fgets($fd,1000)) {
 					preg_match('/\/AMPUSER\/([^\/]+)\/jid[\s]+:[\s]+([^\s]+)/i', $line, $result);
-					echo $result[1] . '  ' . $result[2];
 					$list[trim($result[2])] = trim($result[1]);
 				}
 				fclose ($fd);
