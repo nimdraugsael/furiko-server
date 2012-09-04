@@ -404,7 +404,7 @@
 	$db = new Database();
 	$astdb = new AsteriskDB();
 	echo "\nget ext\n";
-	$astdb->getExtension("nimdraug@avanpx");
+	$astdb->getExtension("nimdraug@avanpbx");
 	echo "\nget jid\n";
 	$astdb->getJid("010");
 	echo "\n\n";
