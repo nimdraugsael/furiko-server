@@ -179,7 +179,7 @@
 		{
 			try {
 				set_time_limit(5);
-				system("sudo /usr/sbin/asterisk -rx \"database show AMPUSER\" > /tmp/asterisk_jid_list.txt");
+				system("sudo /usr/sbin/asterisk -rx \"database show AMPUSER\" | grep jid > /tmp/asterisk_jid_list.txt");
 				$fd=fopen("/tmp/asterisk_jid_list.txt","r");
 				while ($line=fgets($fd,1000))
 				{
