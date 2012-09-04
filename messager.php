@@ -209,7 +209,7 @@
 			$list = $this->getList();
 			var_dump($list);
 			if ($list) {
-				return array_search($extension, $getList());	
+				return array_search($extension, $this->getList());	
 			}
 		}
 	}
