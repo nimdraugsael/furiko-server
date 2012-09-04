@@ -172,7 +172,6 @@
 	}
 
 
-
 	class Database 
 	{
 		private $mysqli_asterisk; // connection
@@ -197,10 +196,17 @@
 			// $sql = "select * from users";
 			// var_dump($this);
 			$res = $this->mysqli_asterisk->query($sql);
-			$res->data_seek(0);
-			$row = $res->fetch_assoc();
-			var_dump($row['extension']);
-			return ($row['extension']);
+			if ($res != null)
+			{
+				$res->data_seek(0);
+				$row = $res->fetch_assoc();
+				var_dump($row['extension']);
+				return ($row['extension']);
+			}
+			else 
+			{
+				return null;
+			}
 		}
 
 		public function getJid($extension) {
@@ -301,7 +307,9 @@
 								sendMessage($from_jid, $response);
 	        		}
 					$with_jid = array_search(bare_ext($channel2), $users);
+					var_dump($users);
 	        		if ($with_jid != null) {
+	        			echo "WITH BRIDH!";
 	        			$response = json_encode(
 									array(	'Action' 	=> 'BridgeEvent',
 	        								'Success' 	=> 'True' ));
