@@ -184,8 +184,10 @@
 				while ($line=fgets($fd,1000)) {
 					preg_match('/\/AMPUSER\/([^\/]+)\/jid[\s]+:[\s]+([^\s]+)/i', $line, $result);
 					echo $result[1] . '  ' . $result[2];
+					$list[trim($result[2])] = trim($result[1]);
 				}
 				fclose ($fd);
+				return $list;
 			} catch (Exception $e) {
 				echo "Exception in AsteriskDB ~> $e";
 			}
@@ -193,12 +195,20 @@
 
 		public function getExtension($jid)
 		{
-
+			$list = getList();
+			if ($list) {
+				if (isset($list[$jid])) {
+					return $list[$jid];
+				}
+			}
 		}
 
 		public function getJid($extension)
 		{
-
+			$list = getList();
+			if ($list) {
+				return array_search($extension, $getList());	
+			}
 		}
 	}
 
@@ -392,7 +402,11 @@
 
 	$db = new Database();
 	$astdb = new AsteriskDB();
-	$astdb->getList();
+	echo "\nget ext\n"
+	$astdb->getExtension("nimdraug@avanpx");
+	echo "\nget jid\n"
+	$astdb->getExtension("010");
+	echo "\n\n";
 
 	$xmpp_client = new JAXL(array(
 			'jid' => 'frk',
