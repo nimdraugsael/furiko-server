@@ -195,7 +195,7 @@
 
 		public function getExtension($jid)
 		{
-			$list = getList();
+			$list = $this->getList();
 			if ($list) {
 				if (isset($list[$jid])) {
 					return $list[$jid];
@@ -205,7 +205,7 @@
 
 		public function getJid($extension)
 		{
-			$list = getList();
+			$list = $this->getList();
 			if ($list) {
 				return array_search($extension, $getList());	
 			}
