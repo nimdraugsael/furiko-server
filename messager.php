@@ -171,6 +171,36 @@
 		if (isset($result[1])) return $result[1];
 	}
 
+	class AsteriskDB
+	{
+		public $users;
+
+		public function getList()
+		{
+			try {
+				set_time_limit(5);
+				system("sudo /usr/sbin/asterisk -rx \"database show AMPUSER\" > /tmp/asterisk_jid_list.txt");
+				$fd=fopen("/tmp/asterisk_jid_list.txt","r");
+				while ($line=fgets($fd,1000))
+				{
+					echo "$line";
+				}
+				fclose ($fd);
+			} catch (Exception $e) {
+				echo "Exception in AsteriskDB ~> $e";
+			}
+		}
+
+		public function getExtension($jid)
+		{
+
+		}
+
+		public function getJid($extension)
+		{
+
+		}
+	}
 
 	class Database 
 	{
@@ -361,6 +391,8 @@
 	// register_tick_function(array($pamiClient, 'process'));
 
 	$db = new Database();
+	$astdb = new AsteriskDB();
+	$astdb->getList();
 
 	$xmpp_client = new JAXL(array(
 			'jid' => 'frk',
