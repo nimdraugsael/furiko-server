@@ -29,6 +29,7 @@
 		global $pamiClient;
 		global $xmpp_client;
 		global $db;
+		global $astdb;
 		global $users;
 		global $originating_calls;
 		$msg_type = "headline";
@@ -54,7 +55,7 @@
     	if ( isset($request['Action']) )
     		switch($request['Action']) {
             case 'Handshake':
-              $ext = $db->getExtension($from);
+              $ext = $astdb->getExtension($from);
                 
             	$response_array = array(	'Action' => 'Handshake', 
                 							'Success' => True,
@@ -115,8 +116,8 @@
             		{
 	            		$with = $request['With'];
 	            		// echo "getHistory: from $from , with $with";
-	            		$from_ext = $db->getExtension($from);
-	            		$with_ext = $db->getExtension($with);
+	            		$from_ext = $astdb->getExtension($from);
+	            		$with_ext = $astdb->getExtension($with);
 	            		if ( ($from_ext) && ($with_ext) )
 	            		{
 		            		$oa = new OriginateAction("SIP/$from_ext");
@@ -241,7 +242,6 @@
 			{
 				$res->data_seek(0);
 				$row = $res->fetch_assoc();
-				var_dump($row['extension']);
 				return ($row['extension']);
 			}
 			else 
@@ -377,11 +377,12 @@
 	        {
 	        	global $users;
 	        	global $db;
+	        	global $astdb;
 	        	$sub_event = $event->getSubEvent();
 	        	$channel = bare_ext($event->getChannel());
 	        	echo "Dial event\n";
 				$from = $channel;
-				$from_jid = $db->getJid($from);
+				$from_jid = $astdb->getJid($from);
 
 	        	$destination = bare_ext($event->getDestination());
 	        	if ($sub_event == "Begin" && $users != null) {
@@ -403,11 +404,6 @@
 
 	$db = new Database();
 	$astdb = new AsteriskDB();
-	echo "\nget ext\n";
-	echo $astdb->getExtension("nimdraug@avanpbx");
-	echo "\nget jid\n";
-	echo $astdb->getJid("010");
-	echo "\n\n";
 
 	$xmpp_client = new JAXL(array(
 			'jid' => 'frk',
@@ -419,18 +415,7 @@
 		'0199'	// XMPP Ping
 	));
 
-
-	function do_job()
-	{
-		echo "tick\n";		
-	}
-
 	$connected = true;
-
-	// if (isset(JAXLLoop::$clock)) 
-		// $ref = JAXLLoop::$clock->call_fun_after(1000, 'do_job', null);
-	// echo $ref;
-
 	
 	$xmpp_client->add_cb('on_auth_failure', function($reason) {
 		global $xmpp_client;
@@ -464,20 +449,5 @@
 	});
 
 	$xmpp_client->start(null, $pamiClient);
-
-	while (1) {}
-
-	// try {
-		// $xmpp_client->start();
-	// } catch (PAMI\Client\Exception\ClientException $e) {
-		// $pamiClient->open();
-		// $xmpp_client->start();	
-	// }
-
-	// try {
-	// 	$pamiClient->close();  
-	// } catch (Exception $e) {
-	// 	echo "Exception!";	
-	// }
 
 ?>
