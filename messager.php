@@ -151,7 +151,7 @@
             	}
             	else
             	{
-            		$response = $error_401;
+            		$response_array = $error_401;
             	}
                 $response = json_encode($response_array);
             		sendMessage($from, $response);
