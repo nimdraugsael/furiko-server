@@ -449,5 +449,5 @@
 	});
 
 	$xmpp_client->start(null, $pamiClient);
- 
+
 ?>
