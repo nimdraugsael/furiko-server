@@ -182,8 +182,8 @@
 				system("sudo /usr/sbin/asterisk -rx \"database show AMPUSER\" | grep jid > /tmp/asterisk_jid_list.txt");
 				$fd=fopen("/tmp/asterisk_jid_list.txt","r");
 				while ($line=fgets($fd,1000))
-				{
-					echo "$line";
+					preg_match('/\/AMPUSER\/([^\/]+)\/jid[\s]+:[\s]+([^\s]+)/i', $line, $result);
+					echo $result[1] . '  ' . $result[2];
 				}
 				fclose ($fd);
 			} catch (Exception $e) {
