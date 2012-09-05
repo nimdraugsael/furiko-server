@@ -273,17 +273,19 @@
 					and withJid = "'.$with.'"';
 			// var_dump($this->mysqli_openfire);
 			// echo "$from ~> $with";
-			$res = $this->mysqli_openfire->query($sql);
-			// var_dump($res);
-			$res->data_seek(0);
-			while ($row = $res->fetch_assoc()) {
-			    $output[] = array(	'time' 	=> $row['time'],
-			    								 		'with' 	=> $row['with'],
-			    								 		'jid' 	=> $row['jid'],
-			    								 		'body' 	=> $row['body'] );
+			if ($res != null) {
+				$res = $this->mysqli_openfire->query($sql);
+				// var_dump($res);
+				$res->data_seek(0);
+				while ($row = $res->fetch_assoc()) {
+				    $output[] = array(	'time' 	=> $row['time'],
+				    								 		'with' 	=> $row['with'],
+				    								 		'jid' 	=> $row['jid'],
+				    								 		'body' 	=> $row['body'] );
+				}
+				// var_dump($output);
+				return $output;
 			}
-			// var_dump($output);
-			return $output;
 		}
 	}
 
