@@ -56,9 +56,8 @@
     		switch($request['Action']) {
             case 'Handshake':
               $ext = $astdb->getExtension($from);
-                
-            	$response_array = array(	'Action' => 'Handshake', 
-                							'Success' => True,
+              $response_array = array(	'Action' => 'Handshake', 
+              							'Success' => True,
                 							'Extension' => $ext );
               $response = json_encode($response_array);
               $users[$from] = $ext;
@@ -217,6 +216,7 @@
 	class Database 
 	{
 		private $mysqli_asterisk; // connection
+		private $mysqli_openfire; // connection
 
 		public function __construct() {
 			$this->mysqli_asterisk = new mysqli("localhost", "root", "123456", "asterisk");
@@ -273,8 +273,8 @@
 					and withJid = "'.$with.'"';
 			// var_dump($this->mysqli_openfire);
 			// echo "$from ~> $with";
+			$res = $this->mysqli_openfire->query($sql);
 			if ($res != null) {
-				$res = $this->mysqli_openfire->query($sql);
 				// var_dump($res);
 				$res->data_seek(0);
 				while ($row = $res->fetch_assoc()) {
@@ -444,7 +444,7 @@
 		// $xmpp_client->set_status("available!", "dnd", 10);
 	});
 
-	$xmpp_client->add_cb('on_chat_message', function($stanza) {
+	$xmpp_client->add_cb('on_headline_message', function($stanza) {
 		global $xmpp_client;
 		// var_dump($stanza);
 		processMessage($stanza);
