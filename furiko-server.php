@@ -270,10 +270,10 @@
 					where m.conversationid = c.conversationid
 					and ownerjid = "'.$from.'"
 					and withJid = "'.$with.'"';
-			// var_dump($this->mysqli_openfire);
-			// echo "$from ~> $with";
+			var_dump($this->mysqli_openfire);
+			echo "$from ~> $with";
 			$res = $this->mysqli_openfire->query($sql);
-			// var_dump($res);
+			var_dump($res);
 			$res->data_seek(0);
 			while ($row = $res->fetch_assoc()) {
 			    $output[] = array(	'time' 	=> $row['time'],
