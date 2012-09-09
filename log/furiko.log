@@ -1,0 +1,44 @@
+2012-09-04 22:47:55,402 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1346759275.3226
+username: furiko
+secret: 123456
+
+----------
+2012-09-04 22:47:55,432 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1346759275.3226
+Message: Authentication accepted
+
+
+2012-09-04 22:47:55,433 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-04 22:47:55,434 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-09-04 22:47:55,434 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-04 22:47:55,435 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-09-04 23:44:43,029 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1346762683.02
+username: furiko
+secret: 123456
+
+----------
+2012-09-04 23:44:43,031 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1346762683.02
+Message: Authentication accepted
+
+
+2012-09-04 23:44:43,062 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-04 23:44:43,062 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-09-04 23:44:43,063 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-04 23:44:43,063 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
