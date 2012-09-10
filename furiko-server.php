@@ -443,7 +443,7 @@
 		// $xmpp_client->set_status("available!", "dnd", 10);
 	});
 
-	$xmpp_client->add_cb('on_chat_message', function($stanza) {
+	$xmpp_client->add_cb('on_headline_message', function($stanza) {
 		global $xmpp_client;
 		// var_dump($stanza);
 		processMessage($stanza);
