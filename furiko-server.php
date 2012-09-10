@@ -263,7 +263,7 @@
 		public function getHistory($from, $with)
 		{
 			$sql ='select 
-					adddate(from_unixtime(m.time/1000, "%Y-%m-%d %h:%i:%s", interval 12 hour) time,
+					from_unixtime(m.time/1000, "%Y-%m-%d %h:%i:%s" time,
 					if( m.direction = "to", c.ownerJid , c.withJid ) jid,
 					c.withJid as "with",
 				    body
