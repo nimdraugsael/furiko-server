@@ -32,6 +32,8 @@
 		global $astdb;
 		global $users;
 		global $originating_calls;
+		echo "got new message";
+		var_dump($stanza);
 		$msg_type = "headline";
 
 		$error_401 = array(	'Action' => 'Error',
