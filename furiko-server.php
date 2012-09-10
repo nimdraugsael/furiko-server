@@ -284,10 +284,10 @@
 				    								 		'with' 	=> $row['with'],
 				    								 		'jid' 	=> $row['jid'],
 				    								 		'body' 	=> $row['body'] );
+				var_dump($output);
+				return $output;
 				}
 			}
-			var_dump($output);
-			return $output;
 		}
 	}
 
