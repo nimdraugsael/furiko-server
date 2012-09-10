@@ -294,10 +294,6 @@
 				return $output;
 				}
 			}
-			else 
-			{
-				print_r($this->mysqli_openfire->error);
-			}
 		}
 	}
 
