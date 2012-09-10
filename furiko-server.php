@@ -32,8 +32,8 @@
 		global $astdb;
 		global $users;
 		global $originating_calls;
-		echo "got new message";
-		var_dump($stanza);
+		// echo "got new message";
+		// var_dump($stanza);
 		$msg_type = "headline";
 
 		$error_401 = array(	'Action' => 'Error',
@@ -272,18 +272,21 @@
 					where m.conversationid = c.conversationid
 					and ownerjid = "'.$from.'"
 					and withJid = "'.$with.'"';
-			var_dump($this->mysqli_openfire);
+			// var_dump($this->mysqli_openfire);
 			echo "$from ~> $with";
 			$res = $this->mysqli_openfire->query($sql);
 			var_dump($res);
-			$res->data_seek(0);
-			while ($row = $res->fetch_assoc()) {
-			    $output[] = array(	'time' 	=> $row['time'],
-			    								 		'with' 	=> $row['with'],
-			    								 		'jid' 	=> $row['jid'],
-			    								 		'body' 	=> $row['body'] );
+			if ($res)
+			{
+				$res->data_seek(0);
+				while ($row = $res->fetch_assoc()) {
+				    $output[] = array(	'time' 	=> $row['time'],
+				    								 		'with' 	=> $row['with'],
+				    								 		'jid' 	=> $row['jid'],
+				    								 		'body' 	=> $row['body'] );
+				}
 			}
-			// var_dump($output);
+			var_dump($output);
 			return $output;
 		}
 	}
