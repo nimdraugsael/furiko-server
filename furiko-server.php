@@ -290,9 +290,9 @@
 				    								 		'with' 	=> $row['with'],
 				    								 		'jid' 	=> $row['jid'],
 				    								 		'body' 	=> $row['body'] );
-				// var_dump($output);
-				return $output;
 				}
+				var_dump($output);
+				return $output;
 			}
 			else 
 			{
@@ -364,7 +364,6 @@
 					$with_jid = array_search(bare_ext($channel2), $users);
 					var_dump($users);
 	        		if ($with_jid != null) {
-	        			echo "WITH BRIDH!";
 	        			$response = json_encode(
 									array(	'Action' 	=> 'BridgeEvent',
 	        								'Success' 	=> 'True' ));
