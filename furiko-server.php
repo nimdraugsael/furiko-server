@@ -267,7 +267,7 @@
 					if( m.direction = "to", c.ownerJid , c.withJid ) jid,
 					c.withJid as "with",
 				    body
-					from archiveMessages m, archiveСonversations c
+					from archiveMessages m, archiveConversations c
 					where m.conversationId = c.conversationId
 					and ownerJid = "'.$from.'"
 					and withJid = "'.$with.'"';
