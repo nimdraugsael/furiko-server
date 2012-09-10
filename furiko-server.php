@@ -262,21 +262,21 @@
 
 		public function getHistory($from, $with)
 		{
-			$sql ='select 
-					from_unixtime(m.time/1000, "%Y-%m-%d %h:%i:%s") time,
-					if( m.direction = "to", c.ownerJid , c.withJid ) jid,
-					c.withJid as "with",
-				    body
-					from archiveMessages m, archiveСonversations c
-					where m.conversationId = c.conversationId
-					and ownerJid = "'.$from.'"
-					and withJid = "'.$with.'"';
+			// $sql ='select 
+			// 		from_unixtime(m.time/1000, "%Y-%m-%d %h:%i:%s") time,
+			// 		if( m.direction = "to", c.ownerJid , c.withJid ) jid,
+			// 		c.withJid as "with",
+			// 	    body
+			// 		from archiveMessages m, archiveСonversations c
+			// 		where m.conversationId = c.conversationId
+			// 		and ownerJid = "'.$from.'"
+			// 		and withJid = "'.$with.'"';
 						$sql ='select 
 					from_unixtime(m.time/1000, "%Y-%m-%d %h:%i:%s") time,
 					if( m.direction = "to", c.ownerJid , c.withJid ) jid,
 					c.withJid as "with",
 				    body
-					from archiveMessages m, archiveconversations c
+					from archiveMessages m, archiveConversations c
 					where m.conversationId = c.conversationId';
 			var_dump($this->mysqli_openfire);
 			echo "$from ~> $with";
