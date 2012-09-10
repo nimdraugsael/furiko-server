@@ -263,7 +263,7 @@
 		public function getHistory($from, $with)
 		{
 			$sql ='select 
-					from_unixtime(m.time/1000, "%Y-%m-%d %h:%i:%s") time,
+					from_unixtime(m.time/1000 + 43200, "%Y-%m-%d %h:%i:%s") time,
 					if( m.direction = "to", c.ownerJid , c.withJid ) jid,
 					c.withJid as "with",
 				    body
