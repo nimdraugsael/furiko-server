@@ -278,10 +278,10 @@
 				 //    body
 					// from archiveMessages m, archiveConversations c
 					// where m.conversationId = c.conversationId';
-			var_dump($this->mysqli_openfire);
-			echo "$from ~> $with";
+			// var_dump($this->mysqli_openfire);
+			// echo "$from ~> $with";
 			$res = $this->mysqli_openfire->query($sql);
-			var_dump($res);
+			// var_dump($res);
 			if ($res)
 			{
 				$res->data_seek(0);
@@ -290,7 +290,7 @@
 				    								 		'with' 	=> $row['with'],
 				    								 		'jid' 	=> $row['jid'],
 				    								 		'body' 	=> $row['body'] );
-				var_dump($output);
+				// var_dump($output);
 				return $output;
 				}
 			}
