@@ -42,3 +42,25 @@ Status: Fully Booted
 
 2012-09-04 23:44:43,063 [DEBUG] Pami.ClientImpl: ----------------
 2012-09-04 23:44:43,063 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-09-10 13:27:43,459 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1347244063.4567
+username: furiko
+secret: 123456
+
+----------
+2012-09-10 13:27:43,462 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1347244063.4567
+Message: Authentication accepted
+
+
+2012-09-10 13:27:43,463 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-10 13:27:43,464 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-09-10 13:27:43,465 [DEBUG] Pami.ClientImpl: ----------------
+2012-09-10 13:27:43,465 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
