@@ -276,7 +276,7 @@
 					if( m.direction = "to", c.ownerJid , c.withJid ) jid,
 					c.withJid as "with",
 				    body
-					from archiveMessages m, archiveСonversations c
+					from archivemessages m, archiveconversations c
 					where m.conversationId = c.conversationId';
 			var_dump($this->mysqli_openfire);
 			echo "$from ~> $with";
