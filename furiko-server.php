@@ -57,12 +57,12 @@
     	if ( isset($request['Action']) )
     		switch($request['Action']) {
             case 'Handshake':
-              // $ext = $astdb->getExtension($from);
+              $ext = $astdb->getExtension($from);
               $response_array = array(	'Action' => 'Handshake', 
                 							'Success' => True );
               $response = json_encode($response_array);
               $users[$from] = $ext;
-            	sendMessage($from, $response);
+            sendMessage($from, $response);
             break;
             case 'Goodbye':
           		unset($users[$from]);
