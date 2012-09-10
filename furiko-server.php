@@ -294,6 +294,10 @@
 				return $output;
 				}
 			}
+			else 
+			{
+				echo "mysqli error : " . $this->mysqli_openfire->error . "\n";				
+			}
 		}
 	}
 
