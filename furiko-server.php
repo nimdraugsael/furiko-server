@@ -62,7 +62,7 @@
                 							'Success' => True );
               $response = json_encode($response_array);
               $users[$from] = $ext;
-            sendMessage($from, $response);
+            	sendMessage($from, $response);
             break;
             case 'Goodbye':
           		unset($users[$from]);
@@ -207,7 +207,7 @@
 		public function getJid($extension)
 		{
 			$list = $this->getList();
-			var_dump($list);
+			// var_dump($list);
 			if ($list) {
 				return array_search($extension, $this->getList());	
 			}
@@ -279,7 +279,7 @@
 				    body
 					from archiveMessages m, archiveСonversations c
 					where m.conversationId = c.conversationId';
-			// var_dump($this->mysqli_openfire);
+			var_dump($this->mysqli_openfire);
 			echo "$from ~> $with";
 			$res = $this->mysqli_openfire->query($sql);
 			var_dump($res);
