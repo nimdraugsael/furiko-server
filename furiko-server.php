@@ -265,12 +265,12 @@
 		{
 			$sql ='select 
 					from_unixtime(m.time/1000, "%Y-%m-%d %h:%i:%s") time,
-					if( m.direction = "to", c.ownerjid , c.withjid ) jid,
-					c.withjid as "with",
+					if( m.direction = "to", c.ownerJid , c.withJid ) jid,
+					c.withJid as "with",
 				    body
-					from archivemessages m, archiveconversations c
-					where m.conversationid = c.conversationid
-					and ownerjid = "'.$from.'"
+					from archiveMessages m, archiveСonversations c
+					where m.conversationId = c.conversationId
+					and ownerJid = "'.$from.'"
 					and withJid = "'.$with.'"';
 			// var_dump($this->mysqli_openfire);
 			echo "$from ~> $with";
