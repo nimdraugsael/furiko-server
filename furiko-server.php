@@ -110,6 +110,7 @@
             		sendMessage($from, $response);
             break;
             case 'OutgoingCall':
+            	echo "Got outgoing call\n";
             	if (isset($users[$from]))
             	{
             		if ( isset($request['With']) )
@@ -118,6 +119,9 @@
 	            		// echo "getHistory: from $from , with $with";
 	            		$from_ext = $astdb->getExtension($from);
 	            		$with_ext = $astdb->getExtension($with);
+
+	            		echo "\nNew call from $from to $with";
+	            		echo "\nFound extensions: from $from_ext, with $with_ext";
 	            		if ( ($from_ext) && ($with_ext) )
 	            		{
 		            		$oa = new OriginateAction("SIP/$from_ext");
@@ -140,7 +144,7 @@
 	            		{
 	            			$response_array = array(	'Action' => 'OutgoingCall', 
 		                													'Success' => false,
-		                													'Error' => '401' );
+		                													'Error' => 'Extensions not found' );
 	            		}
             		}
             		else
@@ -154,8 +158,8 @@
             	{
             		$response_array = $error_401;
             	}
-                $response = json_encode($response_array);
-            		sendMessage($from, $response);
+              $response = json_encode($response_array);
+          		sendMessage($from, $response);
             break;
         }
     }
@@ -179,11 +183,18 @@
 		public function getList()
 		{
 			try {
-				system("sudo /usr/sbin/asterisk -rx \"database show AMPUSER\" | grep jid > /tmp/asterisk_jid_list.txt");
+				system("asterisk -rx \"database show\" | grep jid > /tmp/asterisk_jid_list.txt");
 				$fd=fopen("/tmp/asterisk_jid_list.txt","r");
 				while ($line=fgets($fd,1000)) {
 					preg_match('/\/AMPUSER\/([^\/]+)\/jid[\s]+:[\s]+([^\s]+)/i', $line, $result);
-					$list[trim($result[2])] = trim($result[1]);
+					if ($result) {
+						$list[trim($result[2])] = trim($result[1]);
+					} 
+					else 
+					{
+						echo "\n Cannot get info from asterisk db";
+						echo "\n line from astdb: $line";						
+					}
 				}
 				fclose ($fd);
 				return $list;
@@ -421,7 +432,7 @@
 	$astdb = new AsteriskDB();
 
 	$xmpp_client = new JAXL(array(
-			'jid' => 'frk',
+			'jid' => 'pbx',
 			'pass' => '123456',
 			'host' => 'avanpbx:5222'
 		));
