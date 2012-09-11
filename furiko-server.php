@@ -339,33 +339,8 @@
 	        	global $users;
 	        	$channel1 = $event->getChannel1();
 	        	$channel2 = $event->getChannel2();
-	        	// echo "Calls now $channel1~$channel2: ";
-	        	var_dump($originating_calls);
-	        	if ($originating_calls != null) {
-			        foreach ($originating_calls as $call) {
-								print_r($call);
-								if ( $call["from_ext"] ==  bare_ext($channel1) ) {
-										$jid = array_search(bare_ext($channel1), $users);
-											if ($jid != null) {
-												$response = json_encode(
-													array(	'Action' 	=> 'BridgeEvent',
-					        								'Success' 	=> 'True' ));
-												sendMessage($jid, $response);
-											}
-									}	
-									if ( $call["with_ext"] ==  bare_ext($channel2) ) {
-										$jid = array_search(bare_ext($channel2), $users);
-										if ($jid != null) {
-											$response = json_encode(
-												array(	'Action' 	=> 'BridgeEvent',
-				        								'Success' 	=> 'True' ));
-											sendMessage($jid, $response);
-										}
-									}		        		
-							}
-	        	}
-	        	else {
-	        		if ($users != null ) {
+	        	echo "Calls now $channel1~$channel2: ";
+	        	if ($users != null ) {
 		        		$from_jid = array_search(bare_ext($channel1), $users);
 		        		if ($from_jid != null) {
 		        			$response = json_encode(
@@ -380,8 +355,7 @@
 		        								'Success' 	=> 'True' ));
 									sendMessage($with_jid, $response);
 		        		}		
-		        	}
-        		}
+		        }
 						// var_dump($users);
 	        } 
 	        if ($event instanceof PAMI\Message\Event\HangupEvent)
@@ -390,13 +364,13 @@
 	        	$channel = $event->getChannel();
 	        	echo "Hangup channel $channel";
 	        	if ($users) {
-					$jid = array_search(bare_ext($channel), $users);
-					if ($jid != null) {
-						$response = json_encode(
-							array(	'Action' 	=> 'HangupEvent',
-									'Success' 	=> 'True' ));
-						sendMessage($jid, $response);
-					}
+							$jid = array_search(bare_ext($channel), $users);
+							if ($jid != null) {
+								$response = json_encode(
+									array(	'Action' 	=> 'HangupEvent',
+											'Success' 	=> 'True' ));
+								sendMessage($jid, $response);
+							}
 	        	}
 	        } 
 	        if ($event instanceof PAMI\Message\Event\DialEvent)
@@ -407,20 +381,19 @@
 	        	$sub_event = $event->getSubEvent();
 	        	$channel = bare_ext($event->getChannel());
 	        	echo "Dial event\n";
-				$from = $channel;
-				$from_jid = $astdb->getJid($from);
-
+						$from = $channel;
+						$from_jid = $astdb->getJid($from);
 	        	$destination = bare_ext($event->getDestination());
 	        	if ($sub_event == "Begin" && $users != null) {
-					$jid = array_search($destination, $users);
-					if ($jid != null) {
-						$response = json_encode(
-							array(	'Action' 	=> 'IncomingCallEvent',
-									'Success' 	=> 'True',
-									'From' => $from,
-									'FromJid' => $from_jid ));
-						sendMessage($jid, $response);
-					}
+							$jid = array_search($destination, $users);
+							if ($jid != null) {
+								$response = json_encode(
+									array(	'Action' 	=> 'IncomingCallEvent',
+													'Success' 	=> 'True',
+													'From' => $from,
+													'FromJid' => $from_jid ));
+								sendMessage($jid, $response);
+							}
 	        	}
 	        } 
 	    }
