@@ -339,7 +339,7 @@
 	        	global $users;
 	        	$channel1 = $event->getChannel1();
 	        	$channel2 = $event->getChannel2();
-	        	echo "Calls now $channel1~$channel2: ";
+	        	echo "Calls now $channel1~$channel2:> \n";
 	        	if ($users != null ) {
 		        		$from_jid = array_search(bare_ext($channel1), $users);
 		        		if ($from_jid != null) {
