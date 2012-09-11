@@ -380,10 +380,11 @@
 	        	global $astdb;
 	        	$sub_event = $event->getSubEvent();
 	        	$channel = bare_ext($event->getChannel());
-	        	echo "Dial event\n";
 						$from = $channel;
 						$from_jid = $astdb->getJid($from);
 	        	$destination = bare_ext($event->getDestination());
+	        	echo "\nDial event -> \n" ;
+	        	echo "from $from to $destination\n";
 	        	if ($sub_event == "Begin" && $users != null) {
 							$jid = array_search($destination, $users);
 							if ($jid != null) {
