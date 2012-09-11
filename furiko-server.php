@@ -328,48 +328,50 @@
 	        	global $users;
 	        	$channel1 = $event->getChannel1();
 	        	$channel2 = $event->getChannel2();
-	        	echo "Calls now $channel1~$channel2: ";
+	        	// echo "Calls now $channel1~$channel2: ";
 	        	var_dump($originating_calls);
 	        	if ($originating_calls != null) {
-		        	foreach ($originating_calls as $call) {
-						print_r($call);
-						if ( $call["from_ext"] ==  bare_ext($channel1) ) {
-							$jid = array_search(bare_ext($channel1), $users);
-							if ($jid != null) {
-								$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($jid, $response);
+			        foreach ($originating_calls as $call) {
+								print_r($call);
+								if ( $call["from_ext"] ==  bare_ext($channel1) ) {
+										$jid = array_search(bare_ext($channel1), $users);
+											if ($jid != null) {
+												$response = json_encode(
+													array(	'Action' 	=> 'BridgeEvent',
+					        								'Success' 	=> 'True' ));
+												sendMessage($jid, $response);
+											}
+									}	
+									if ( $call["with_ext"] ==  bare_ext($channel2) ) {
+										$jid = array_search(bare_ext($channel2), $users);
+										if ($jid != null) {
+											$response = json_encode(
+												array(	'Action' 	=> 'BridgeEvent',
+				        								'Success' 	=> 'True' ));
+											sendMessage($jid, $response);
+										}
+									}		        		
 							}
-						}	
-						if ( $call["with_ext"] ==  bare_ext($channel2) ) {
-							$jid = array_search(bare_ext($channel2), $users);
-							if ($jid != null) {
-								$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($jid, $response);
-							}
-						}		        		
-		        	}
 	        	}
 	        	else {
-	        		$from_jid = array_search(bare_ext($channel1), $users);
-	        		if ($from_jid != null) {
-	        			$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($from_jid, $response);
-	        		}
-					$with_jid = array_search(bare_ext($channel2), $users);
-					var_dump($users);
-	        		if ($with_jid != null) {
-	        			$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($with_jid, $response);
-	        		}		
-	        	}
+	        		if ($users != null ) {
+		        		$from_jid = array_search(bare_ext($channel1), $users);
+		        		if ($from_jid != null) {
+		        			$response = json_encode(
+										array(	'Action' 	=> 'BridgeEvent',
+		        								'Success' 	=> 'True' ));
+									sendMessage($from_jid, $response);
+		        		}
+								$with_jid = array_search(bare_ext($channel2), $users);
+		        		if ($with_jid != null) {
+		        			$response = json_encode(
+										array(	'Action' 	=> 'BridgeEvent',
+		        								'Success' 	=> 'True' ));
+									sendMessage($with_jid, $response);
+		        		}		
+		        	}
+        		}
+						// var_dump($users);
 	        } 
 	        if ($event instanceof PAMI\Message\Event\HangupEvent)
 	        {
