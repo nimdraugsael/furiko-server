@@ -448,6 +448,7 @@
 		processMessage($stanza);
 	});
 
-	$xmpp_client->start(null, $pamiClient);
+	$xmpp_client->start(array(
+				'--with-unix-sock' => true), $pamiClient);
 
 ?>
