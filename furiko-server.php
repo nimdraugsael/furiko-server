@@ -212,6 +212,7 @@
 					return $list[$jid];
 				}
 			}
+			return null;
 		}
 
 		public function getJid($extension)
@@ -221,6 +222,7 @@
 			if ($list) {
 				return array_search($extension, $this->getList());	
 			}
+			return null;
 		}
 	}
 
@@ -381,21 +383,27 @@
 	        	$sub_event = $event->getSubEvent();
 	        	$channel = bare_ext($event->getChannel());
 						$from = $channel;
+						$from_caller_id = $event->getCallerIDName();
 						$from_jid = $astdb->getJid($from);
 	        	$destination = bare_ext($event->getDestination());
 	        	echo "\nDial event -> \n" ;
 	        	echo "from $from to $destination\n";
-	        	if ($sub_event == "Begin" && $users != null) {
-							$jid = array_search($destination, $users);
-							if ($jid != null) {
-								$response = json_encode(
-									array(	'Action' 	=> 'IncomingCallEvent',
-													'Success' 	=> 'True',
-													'From' => $from,
-													'FromJid' => $from_jid ));
-								sendMessage($jid, $response);
-							}
+	        	try {
+		        	if ($sub_event == "Begin" && $users != null) {
+								$jid = array_search($destination, $users);
+								if ($jid != null) {
+									$response = json_encode(
+										array(	'Action' 	=> 'IncomingCallEvent',
+														'Success' 	=> 'True',
+														'From' => $from_caller_id,
+														'FromJid' => $from_jid ));
+									sendMessage($jid, $response);
+								}
+		        	}	
+	        	} catch (Exception $e) {
+	        		echo "Excepition in DialEvent: $e\n";
 	        	}
+	        	
 	        } 
 	    }
     );  
