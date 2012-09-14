@@ -170,16 +170,15 @@
             	echo "Got hangup\n";
             	if (isset($users[$from]))
             	{
-            		$ext = $astdb->getExtension($from);
-            		$channel = "SIP/$ext";
-            		$sa = new StatusAction($channel);
-            		$response = $pamiClient->send($sa);
-            		var_dump($response);
+            		$astdb->hangupByJid($from);
+            		// $sa = new StatusAction($channel);
+            		// $response = $pamiClient->send($sa);
+            		// var_dump($response);
             		// $ha = new HangupAction($channel);
 					// $response = $pamiClient->send($ha);
-					echo "Hangup $channel :";
+					// echo "Hangup: $channel";
 					$response_array = array(	'Action' => 'Hangup', 
-                								'Success' => $response->isSuccess() );	
+                								'Success' => true );	
             	}
             	else
             	{
@@ -230,25 +229,34 @@
 			}
 		}
 
-		public function getChannel($jid)
+		public function hangupByJid($jid)
+		{
+			$ext = $this->getExtension($jid);
+			$this->hangupByExt($ext);
+		}
+
+		public function hangupByExt($ext)
+		{
+			$list = $this->getChannel($ext);
+			foreach ($list as $c) {
+				system("sudo /usr/sbin/asterisk -rx \"channel request hangup $c\"");
+				echo "hangup on $c\n";
+			}
+		}
+
+		public function getChannel($ext)
 		{
 			try {
-				system("sudo /usr/sbin/asterisk -rx \"database show AMPUSER\" | grep jid > /tmp/asterisk_jid_list.txt");
-				$fd=fopen("/tmp/asterisk_jid_list.txt","r");
+				system("sudo /usr/sbin/asterisk -rx \"core show channels\" | grep $ext > /tmp/asterisk_channel_list.txt");
+				$fd=fopen("/tmp/asterisk_channel_list.txt","r");
 				while ($line=fgets($fd,1000)) {
 					echo "$line\n";
-					// preg_match('/\/AMPUSER\/([^\/]+)\/jid[\s]+:[\s]+([^\s]+)/i', $line, $result);
-					// if ($result) {
-					// 	$list[trim($result[2])] = trim($result[1]);
-					// } 
-					// else 
-					// {
-					// 	echo "\n Cannot get info from asterisk db";
-					// 	echo "\n line from astdb: $line";						
-					// }
+					preg_match('/^([^\s]+)[\s]/i', $line, $result);
+					if ($result[0]) $list[] = $result[0];
 				}
 				fclose ($fd);
 				return $list;
+				// return null;
 			} catch (Exception $e) {
 				echo "Exception in AsteriskDB ~> $e";
 			}			
@@ -257,7 +265,7 @@
 		public function getExtension($jid)
 		{
 			$list = $this->getList();
-			var_dump($list);
+			// var_dump($list);
 			// var_dump($list);
 			if ($list) {
 				if (isset($list[$jid])) {
@@ -270,7 +278,7 @@
 		public function getJid($extension)
 		{
 			$list = $this->getList();
-			var_dump($list);
+			// var_dump($list);
 			if ($list) {
 				return array_search($extension, $this->getList());	
 			}
@@ -411,22 +419,24 @@
 		        	}
 	        	}
 	        	else {
-	        		$from_jid = array_search(bare_ext($channel1), $users);
-	        		if ($from_jid != null) {
-	        			$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($from_jid, $response);
+	        		if ($users)
+	        		{
+		        		$from_jid = array_search(bare_ext($channel1), $users);
+		        		if ($from_jid != null) {
+		        			$response = json_encode(
+										array(	'Action' 	=> 'BridgeEvent',
+		        								'Success' 	=> 'True' ));
+									sendMessage($from_jid, $response);
+		        		}
+						$with_jid = array_search(bare_ext($channel2), $users);
+		        		if ($with_jid != null) {
+		        			echo "WITH BRIDH!";
+		        			$response = json_encode(
+										array(	'Action' 	=> 'BridgeEvent',
+		        								'Success' 	=> 'True' ));
+									sendMessage($with_jid, $response);
+		        		}		
 	        		}
-					$with_jid = array_search(bare_ext($channel2), $users);
-					var_dump($users);
-	        		if ($with_jid != null) {
-	        			echo "WITH BRIDH!";
-	        			$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($with_jid, $response);
-	        		}		
 	        	}
 	        	echo "Calls now $channel1~$channel2:> \n";
 	        	if ($users != null ) {
