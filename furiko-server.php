@@ -460,13 +460,6 @@
 									'Success' 	=> 'True' ));
 						sendMessage($jid, $response);
 					}
-							$jid = array_search(bare_ext($channel), $users);
-							if ($jid != null) {
-								$response = json_encode(
-									array(	'Action' 	=> 'HangupEvent',
-											'Success' 	=> 'True' ));
-								sendMessage($jid, $response);
-							}
 	        	}
 	        } 
 	        if ($event instanceof PAMI\Message\Event\DialEvent)
