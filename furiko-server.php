@@ -249,6 +249,7 @@
 			try {
 				system("sudo /usr/sbin/asterisk -rx \"core show channels\" | grep $ext > /tmp/asterisk_channel_list.txt");
 				$fd=fopen("/tmp/asterisk_channel_list.txt","r");
+				$list = array();
 				while ($line=fgets($fd,1000)) {
 					echo "$line\n";
 					preg_match('/^([^\s]+)[\s]/i', $line, $result);
