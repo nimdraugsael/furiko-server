@@ -15,6 +15,23 @@
 
 	require 'JAXL/jaxl.php';
 
+	$child_pid = pcntl_fork();
+	if ($child_pid) {
+	    // Выходим из родительского, привязанного к консоли, процесса
+	    exit();
+	}
+	// Делаем основным процессом дочерний.
+	posix_setsid();
+
+	$baseDir = dirname(__FILE__);
+	ini_set('error_log',$baseDir.'/error.log');
+	fclose(STDIN);
+	fclose(STDOUT);
+	fclose(STDERR);
+	$STDIN = fopen('/dev/null', 'r');
+	$STDOUT = fopen($baseDir.'/application.log', 'ab');
+	$STDERR = fopen($baseDir.'/daemon.log', 'ab');
+
 	// include 'XMPPHP/XMPP.php';
 	function sendMessage($to, $body)
 	{
@@ -372,7 +389,7 @@
 
 	date_default_timezone_set('Asia/Vladivostok');
 	$pamiClientOptions = array(  
-		'log4php.properties' => __DIR__ . '/log4php.properties',  
+		'log4php.properties' =>  __DIR__ . '/log4php.properties',  
 	    'host' => 'avanpbx',        
 	    'scheme' => 'tcp://',         
 	    'port' => 5038,               
