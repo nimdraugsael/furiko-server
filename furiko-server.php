@@ -15,22 +15,24 @@
 
 	require 'JAXL/jaxl.php';
 
-	$child_pid = pcntl_fork();
-	if ($child_pid) {
-	    // Выходим из родительского, привязанного к консоли, процесса
-	    exit();
-	}
-	// Делаем основным процессом дочерний.
-	posix_setsid();
+	if (isset($argv[1]) == false) {
+		$child_pid = pcntl_fork();
+		if ($child_pid) {
+		    // Выходим из родительского, привязанного к консоли, процесса
+		    exit();
+		}
+		// Делаем основным процессом дочерний.
+		posix_setsid();
 
-	$baseDir = dirname(__FILE__);
-	ini_set('error_log',$baseDir.'/error.log');
-	fclose(STDIN);
-	fclose(STDOUT);
-	fclose(STDERR);
-	$STDIN = fopen('/dev/null', 'r');
-	$STDOUT = fopen($baseDir.'/application.log', 'ab');
-	$STDERR = fopen($baseDir.'/daemon.log', 'ab');
+		$baseDir = dirname(__FILE__);
+		ini_set('error_log',$baseDir.'/error.log');
+		fclose(STDIN);
+		fclose(STDOUT);
+		fclose(STDERR);
+		$STDIN = fopen('/dev/null', 'r');
+		$STDOUT = fopen($baseDir.'/application.log', 'ab');
+		$STDERR = fopen($baseDir.'/daemon.log', 'ab');
+	}
 
 	// include 'XMPPHP/XMPP.php';
 	function sendMessage($to, $body)
@@ -187,7 +189,14 @@
             	echo "Got hangup\n";
             	if (isset($users[$from]))
             	{
-            		$astdb->hangupByJid($from);
+            		if ( isset($request['Channel']) )
+            		{
+            			$astdb->hangupByChannel($request['Channel']);
+            		}
+            		else 
+            		{
+            	    	$astdb->hangupByJid($from);
+            		}
             		// $sa = new StatusAction($channel);
             		// $response = $pamiClient->send($sa);
             		// var_dump($response);
@@ -244,6 +253,12 @@
 			} catch (Exception $e) {
 				echo "Exception in AsteriskDB ~> $e";
 			}
+		}
+
+		public function hangupByChannel($channel) 
+		{
+				system("sudo /usr/sbin/asterisk -rx \"channel request hangup $channel\"");
+				echo "Hangup by channel: hangup on $c\n";
 		}
 
 		public function hangupByJid($jid)
@@ -411,65 +426,71 @@
 	        	global $users;
 	        	$channel1 = $event->getChannel1();
 	        	$channel2 = $event->getChannel2();
-	        	echo "Calls now $channel1~$channel2: ";
-	        	var_dump($originating_calls);
-	        	if ($originating_calls != null) {
-		        	foreach ($originating_calls as $call) {
-						print_r($call);
-						if ( $call["from_ext"] ==  bare_ext($channel1) ) {
-							$jid = array_search(bare_ext($channel1), $users);
-							if ($jid != null) {
-								$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($jid, $response);
-							}
-						}	
-						if ( $call["with_ext"] ==  bare_ext($channel2) ) {
-							$jid = array_search(bare_ext($channel2), $users);
-							if ($jid != null) {
-								$response = json_encode(
-									array(	'Action' 	=> 'BridgeEvent',
-	        								'Success' 	=> 'True' ));
-								sendMessage($jid, $response);
-							}
-						}		        		
-		        	}
-	        	}
-	        	else {
-	        		if ($users)
-	        		{
-		        		$from_jid = array_search(bare_ext($channel1), $users);
-		        		if ($from_jid != null) {
-		        			$response = json_encode(
-										array(	'Action' 	=> 'BridgeEvent',
-		        								'Success' 	=> 'True' ));
-									sendMessage($from_jid, $response);
-		        		}
-						$with_jid = array_search(bare_ext($channel2), $users);
-		        		if ($with_jid != null) {
-		        			echo "WITH BRIDH!";
-		        			$response = json_encode(
-										array(	'Action' 	=> 'BridgeEvent',
-		        								'Success' 	=> 'True' ));
-									sendMessage($with_jid, $response);
-		        		}		
-	        		}
-	        	}
+	     //    	echo "Calls now $channel1~$channel2: ";
+	     //    	var_dump($originating_calls);
+	     //    	if ($originating_calls != null) {
+		    //     	foreach ($originating_calls as $call) {
+						// print_r($call);
+						// if ( $call["from_ext"] ==  bare_ext($channel1) ) {
+						// 	$jid = array_search(bare_ext($channel1), $users);
+						// 	if ($jid != null) {
+						// 		$response = json_encode(
+						// 			array(	'Action' 	=> 'BridgeEvent',
+	     //    								'Success' 	=> 'True',
+	     //    								'Channel'	=> $channel1 ));
+						// 		sendMessage($jid, $response);
+						// 	}
+						// }	
+						// if ( $call["with_ext"] ==  bare_ext($channel2) ) {
+						// 	$jid = array_search(bare_ext($channel2), $users);
+						// 	if ($jid != null) {
+						// 		$response = json_encode(
+						// 			array(	'Action' 	=> 'BridgeEvent',
+	     //    								'Success' 	=> 'True',
+	     //    								'Channel'	=> $channel2 ));
+						// 		sendMessage($jid, $response);
+						// 	}
+						// }		        		
+		    //     	}
+	     //    	}
+	     //    	else {
+	     //    		if ($users)
+	     //    		{
+		    //     		$from_jid = array_search(bare_ext($channel1), $users);
+		    //     		if ($from_jid != null) {
+		    //     			$response = json_encode(
+						// 				array(	'Action' 	=> 'BridgeEvent',
+		    //     								'Success' 	=> 'True',
+		    //     								'Channel'	=> $channel1 ));
+						// 			sendMessage($from_jid, $response);
+		    //     		}
+						// $with_jid = array_search(bare_ext($channel2), $users);
+		    //     		if ($with_jid != null) {
+		    //     			echo "WITH BRIDH!";
+		    //     			$response = json_encode(
+						// 				array(	'Action' 	=> 'BridgeEvent',
+		    //     								'Success' 	=> 'True',
+		    //     								'Channel'	=> $channel2 ));
+						// 			sendMessage($with_jid, $response);
+		    //     		}		
+	     //    		}
+	     //    	}
 	        	echo "Calls now $channel1~$channel2:> \n";
 	        	if ($users != null ) {
 		        		$from_jid = array_search(bare_ext($channel1), $users);
 		        		if ($from_jid != null) {
 		        			$response = json_encode(
 										array(	'Action' 	=> 'BridgeEvent',
-		        								'Success' 	=> 'True' ));
+		        								'Success' 	=> 'True',
+		        								'Channel'	=> $channel1 ));
 									sendMessage($from_jid, $response);
 		        		}
 								$with_jid = array_search(bare_ext($channel2), $users);
 		        		if ($with_jid != null) {
 		        			$response = json_encode(
 										array(	'Action' 	=> 'BridgeEvent',
-		        								'Success' 	=> 'True' ));
+		        								'Success' 	=> 'True',
+		        								'Channel'	=> $channel2 ));
 									sendMessage($with_jid, $response);
 		        		}		
 		        }
@@ -485,7 +506,8 @@
 					if ($jid != null) {
 						$response = json_encode(
 							array(	'Action' 	=> 'HangupEvent',
-									'Success' 	=> 'True' ));
+									'Success' 	=> 'True',
+									'Channel'	=> $channel ));
 						sendMessage($jid, $response);
 					}
 	        	}
@@ -496,26 +518,10 @@
 	        	global $db;
 	        	global $astdb;
 	        	$sub_event = $event->getSubEvent();
-	        	$channel = bare_ext($event->getChannel());
-	        	echo "Dial event\n";
-				$from = $channel;
+	        	$channel = $event->getChannel();
+	        	$from = bare_ext($channel);
+				$from_caller_id = $event->getCallerIDName();
 				$from_jid = $astdb->getJid($from);
-
-	        	$destination = bare_ext($event->getDestination());
-	        	if ($sub_event == "Begin" && $users != null) {
-					$jid = array_search($destination, $users);
-					if ($jid != null) {
-						$response = json_encode(
-							array(	'Action' 	=> 'IncomingCallEvent',
-									'Success' 	=> 'True',
-									'From' => $from,
-									'FromJid' => $from_jid ));
-						sendMessage($jid, $response);
-					}
-	        	}
-						$from = $channel;
-						$from_caller_id = $event->getCallerIDName();
-						$from_jid = $astdb->getJid($from);
 	        	$destination = bare_ext($event->getDestination());
 	        	echo "\nDial event -> \n" ;
 	        	echo "from $from to $destination\n";
@@ -525,9 +531,10 @@
 								if ($jid != null) {
 									$response = json_encode(
 										array(	'Action' 	=> 'IncomingCallEvent',
-														'Success' 	=> 'True',
-														'From' => $from_caller_id,
-														'FromJid' => $from_jid ));
+												'Success' 	=> 'True',
+												'From' => $from_caller_id,
+												'FromJid' => $from_jid,
+												'Channel' => $event->getDestination() ));
 									sendMessage($jid, $response);
 								}
 		        	}	

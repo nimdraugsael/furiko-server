@@ -191,3 +191,235 @@ Packet: <iq type="error" id="aaaba" from="pbx@avanpbx/jaxl#2360139d794a40d8d67d6
 
 2012-09-13 16:10:35,090 [DEBUG] Pami.ClientImpl: ----------------
 >>>>>>> 034129a5ee6e98b53ac37481ce59275c1c113914
+2012-10-02 16:23:24,121 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1349155404.0916
+username: furiko
+secret: 123456
+
+----------
+2012-10-02 16:23:24,135 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1349155404.0916
+Message: Authentication accepted
+
+
+2012-10-02 16:23:24,168 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:23:24,168 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-10-02 16:23:24,189 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:23:24,189 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-10-02 16:23:24,979 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <presence id="3" from="pbx@avanpbx/jaxl#afb70460492653bbac89cc0d81d48b12" to="pbx@avanpbx/asterisk"><status>available!</status><show>dnd</show><priority>10</priority></presence>
+
+
+2012-10-02 16:23:25,166 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:23:25,166 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type='get' to='pbx@avanpbx/jaxl#afb70460492653bbac89cc0d81d48b12' from='pbx@avanpbx/asterisk' id='aaaae'><query xmlns='http://jabber.org/protocol/disco#info'/></iq>
+
+
+2012-10-02 16:23:25,166 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:23:25,166 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberStatus
+Privilege: user,all
+Account: pbx
+JID: pbx@avanpbx
+Resource: jaxl#afb70460492653bbac89cc0d81d48b12
+Status: 5
+Priority: 10
+Description: available!
+
+
+2012-10-02 16:23:25,217 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:23:25,218 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type="error" id="aaaae" from="pbx@avanpbx/jaxl#afb70460492653bbac89cc0d81d48b12" to="pbx@avanpbx/asterisk"><query xmlns="http://jabber.org/protocol/disco#info"/><error code="503" type="cancel"><service-unavailable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/></error></iq>
+
+
+2012-10-02 16:23:25,218 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:07,657 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1349155447.656
+username: furiko
+secret: 123456
+
+----------
+2012-10-02 16:24:07,660 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1349155447.656
+Message: Authentication accepted
+
+
+2012-10-02 16:24:07,661 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:07,661 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-10-02 16:24:07,662 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:07,662 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-10-02 16:24:07,940 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <presence id="3" from="pbx@avanpbx/jaxl#ba514ea6cdedda7ab3ed9cdaa0f3445f" to="pbx@avanpbx/asterisk"><status>available!</status><show>dnd</show><priority>10</priority></presence>
+
+
+2012-10-02 16:24:07,942 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:07,942 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type='get' to='pbx@avanpbx/jaxl#ba514ea6cdedda7ab3ed9cdaa0f3445f' from='pbx@avanpbx/asterisk' id='aaaaf'><query xmlns='http://jabber.org/protocol/disco#info'/></iq>
+
+
+2012-10-02 16:24:07,942 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:07,972 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberStatus
+Privilege: user,all
+Account: pbx
+JID: pbx@avanpbx
+Resource: jaxl#ba514ea6cdedda7ab3ed9cdaa0f3445f
+Status: 5
+Priority: 10
+Description: available!
+
+
+2012-10-02 16:24:07,973 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:07,973 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type="error" id="aaaaf" from="pbx@avanpbx/jaxl#ba514ea6cdedda7ab3ed9cdaa0f3445f" to="pbx@avanpbx/asterisk"><query xmlns="http://jabber.org/protocol/disco#info"/><error code="503" type="cancel"><service-unavailable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/></error></iq>
+
+
+2012-10-02 16:24:07,973 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:09,938 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1349155449.9371
+username: furiko
+secret: 123456
+
+----------
+2012-10-02 16:24:09,940 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1349155449.9371
+Message: Authentication accepted
+
+
+2012-10-02 16:24:09,942 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:09,942 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-10-02 16:24:09,943 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:09,943 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-10-02 16:24:10,292 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <presence id="3" from="pbx@avanpbx/jaxl#233df55f36762b58b21187b2620a9648" to="pbx@avanpbx/asterisk"><status>available!</status><show>dnd</show><priority>10</priority></presence>
+
+
+2012-10-02 16:24:10,294 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:10,295 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type='get' to='pbx@avanpbx/jaxl#233df55f36762b58b21187b2620a9648' from='pbx@avanpbx/asterisk' id='aaaag'><query xmlns='http://jabber.org/protocol/disco#info'/></iq>
+
+
+2012-10-02 16:24:10,295 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:10,295 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberStatus
+Privilege: user,all
+Account: pbx
+JID: pbx@avanpbx
+Resource: jaxl#233df55f36762b58b21187b2620a9648
+Status: 5
+Priority: 10
+Description: available!
+
+
+2012-10-02 16:24:10,296 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:10,296 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type="error" id="aaaag" from="pbx@avanpbx/jaxl#233df55f36762b58b21187b2620a9648" to="pbx@avanpbx/asterisk"><query xmlns="http://jabber.org/protocol/disco#info"/><error code="503" type="cancel"><service-unavailable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/></error></iq>
+
+
+2012-10-02 16:24:10,296 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:15,213 [DEBUG] Pami.ClientImpl: ------ Sending: ------ 
+action: Login
+actionid: 1349155455.2125
+username: furiko
+secret: 123456
+
+----------
+2012-10-02 16:24:15,216 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Response: Success
+ActionID: 1349155455.2125
+Message: Authentication accepted
+
+
+2012-10-02 16:24:15,217 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:15,217 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: FullyBooted
+Privilege: system,all
+Status: Fully Booted
+
+
+2012-10-02 16:24:15,218 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:15,218 [DEBUG] Pami.ClientImpl: Logged in successfully to ami.
+2012-10-02 16:24:15,528 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <presence id="3" from="pbx@avanpbx/jaxl#063dba5337070d85650e801201d10abb" to="pbx@avanpbx/asterisk"><status>available!</status><show>dnd</show><priority>10</priority></presence>
+
+
+2012-10-02 16:24:15,530 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:15,530 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type='get' to='pbx@avanpbx/jaxl#063dba5337070d85650e801201d10abb' from='pbx@avanpbx/asterisk' id='aaaah'><query xmlns='http://jabber.org/protocol/disco#info'/></iq>
+
+
+2012-10-02 16:24:15,530 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:15,530 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberStatus
+Privilege: user,all
+Account: pbx
+JID: pbx@avanpbx
+Resource: jaxl#063dba5337070d85650e801201d10abb
+Status: 5
+Priority: 10
+Description: available!
+
+
+2012-10-02 16:24:15,531 [DEBUG] Pami.ClientImpl: ----------------
+2012-10-02 16:24:15,531 [DEBUG] Pami.ClientImpl: ------ Received: ------ 
+Event: JabberEvent
+Privilege: user,all
+Account: pbx
+Packet: <iq type="error" id="aaaah" from="pbx@avanpbx/jaxl#063dba5337070d85650e801201d10abb" to="pbx@avanpbx/asterisk"><query xmlns="http://jabber.org/protocol/disco#info"/><error code="503" type="cancel"><service-unavailable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/></error></iq>
+
+
+2012-10-02 16:24:15,531 [DEBUG] Pami.ClientImpl: ----------------
