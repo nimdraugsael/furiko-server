@@ -8,6 +8,7 @@
 	use PAMI\Message\Action\OriginateAction;
 	use PAMI\Message\Action\HangupAction;
 	use PAMI\Message\Action\StatusAction;
+	use PAMI\Message\Action\AttendedTransferAction;
 
 	use PAMI\Message\Event\EventMessage;
 
@@ -185,6 +186,48 @@
               $response = json_encode($response_array);
           		sendMessage($from, $response);
             break;
+            case 'TransferCall':
+            	echo "Got transfer\n";
+            	echo "$body \n";
+            	if (isset($users[$from]) && isset($request["Channel"]) )
+            	{
+            		// AttendedTransferAction
+            		if (isset($request["To"])) {
+            			$to_extension = $astdb->getExtension($request["To"]);
+            			if ($to_extension != null) {
+            				$channel = $request["Channel"]; 
+			            	echo "Got transfer: To $to_extension channel $channel" ;
+            				$ra = new AttendedTransferAction($channel, $to_extension, "from-internal", 1);
+            				try {
+	            				$response = $pamiClient->send($ra);
+			            		$response_array = array(	'Action' => 'TransferCall', 
+			                								'Success' => $response->isSuccess() );
+		            		} catch (Exception $e) {
+		            			$response_array = array(	'Action' => 'TransferCall', 
+			                								'Success' => false );		            		
+		            		}
+            			}
+            			else 
+            			{
+            				$response_array = array(	'Action' 	=> 'TransferCall', 
+				                						'Success' 	=> false,
+				                						'Error'		=> "No jid found for " . $request["To"] );
+            			}
+            		}
+            		else
+	            	{
+	            		$response_array = array(	'Action' 	=> 'TransferCall', 
+			                						'Success' 	=> false );
+	            	}
+            	}
+            	else
+            	{
+            		$response_array = array(	'Action' 	=> 'TransferCall', 
+		                						'Success' 	=> false );
+            	}
+                $response = json_encode($response_array);
+           		sendMessage($from, $response);
+            break;
             case 'Hangup':
             	echo "Got hangup\n";
             	if (isset($users[$from]))
@@ -258,7 +301,7 @@
 		public function hangupByChannel($channel) 
 		{
 				system("sudo /usr/sbin/asterisk -rx \"channel request hangup $channel\"");
-				echo "Hangup by channel: hangup on $c\n";
+				echo "Hangup by channel: hangup on $channel\`n";
 		}
 
 		public function hangupByJid($jid)
@@ -517,6 +560,7 @@
 	        	global $users;
 	        	global $db;
 	        	global $astdb;
+	        	var_dump($event);
 	        	$sub_event = $event->getSubEvent();
 	        	$channel = $event->getChannel();
 	        	$from = bare_ext($channel);
@@ -526,18 +570,22 @@
 	        	echo "\nDial event -> \n" ;
 	        	echo "from $from to $destination\n";
 	        	try {
-		        	if ($sub_event == "Begin" && $users != null) {
-								$jid = array_search($destination, $users);
-								if ($jid != null) {
-									$response = json_encode(
-										array(	'Action' 	=> 'IncomingCallEvent',
-												'Success' 	=> 'True',
-												'From' => $from_caller_id,
-												'FromJid' => $from_jid,
-												'Channel' => $event->getDestination() ));
-									sendMessage($jid, $response);
-								}
-		        	}	
+	        		if ( ($sub_event) && ($destination) && ($users) )
+	        		{
+			        	if ($sub_event == "Begin") {
+									$jid = array_search($destination, $users);
+									if ($jid != null) {
+										$response = json_encode(
+											array(	'Action' 	=> 'IncomingCallEvent',
+													'Success' 	=> 'True',
+													'From' => $from_caller_id,
+													'FromJid' => $from_jid,
+													'FromExt' => $from,  
+													'Channel' => $event->getDestination() ));
+										sendMessage($jid, $response);
+									}
+			        	}	
+	        		}
 	        	} catch (Exception $e) {
 	        		echo "Excepition in DialEvent: $e\n";
 	        	}
