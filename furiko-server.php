@@ -12,6 +12,8 @@
 
 	use PAMI\Message\Event\EventMessage;
 
+	// for actions : ActionId = microtime(true)
+
 	declare(ticks=1);
 
 	require 'JAXL/jaxl.php';
@@ -56,6 +58,8 @@
 		global $users;
 		global $channels; # channels[$extension] = $channel
 		global $originating_calls;
+
+		global $listeners;
 
 		// var_dump($stanza);
 		$msg_type = "headline";
@@ -154,9 +158,8 @@
 		            		$oa->setCallerId($from);
 		            		try {
 		            			$response = $pamiClient->send($oa);
-			            		$originating_calls[] = array(	'from_ext' => $from_ext,
-			            										'with_ext' => $with_ext );
 			            		$response_array = array(	'Action' => 'OutgoingCall', 
+			            									'Extension' => $with_ext,
 			                								'Success' => $response->isSuccess() );
 		            		} catch (Exception $e) {
 		            			$response_array = array(	'Action' => 'OutgoingCall', 
@@ -166,8 +169,8 @@
 	            		else 
 	            		{
 	            			$response_array = array(	'Action' => 'OutgoingCall', 
-		                													'Success' => false,
-		                													'Error' => 'Extensions not found' );
+		                								'Success' => false,
+		                								'Error' => 'Extensions not found' );
 	            		}
             		}
             		else
@@ -196,11 +199,17 @@
             			$to_extension = $astdb->getExtension($request["To"]);
             			if ($to_extension != null) {
             				$channel = $request["Channel"]; 
+            				
+            				$listeners[bare_ext($channel)][] = $from;
+
 			            	echo "Got transfer: To $to_extension channel $channel" ;
             				$ra = new AttendedTransferAction($channel, $to_extension, "from-internal", 1);
             				try {
 	            				$response = $pamiClient->send($ra);
 			            		$response_array = array(	'Action' => 'TransferCall', 
+			            									'To' => $request["To"],
+			            									'Channel' => $channel,
+			            									'ToExtension' => $to_extension,
 			                								'Success' => $response->isSuccess() );
 		            		} catch (Exception $e) {
 		            			$response_array = array(	'Action' => 'TransferCall', 
@@ -246,8 +255,9 @@
             		// $ha = new HangupAction($channel);
 					// $response = $pamiClient->send($ha);
 					// echo "Hangup: $channel";
-					$response_array = array(	'Action' => 'Hangup', 
-                								'Success' => true );	
+					$response_array = array(	'Action' 	=> 'HangupEvent',
+												'Success' 	=> 'True',
+												'Channel'	=> $request['Channel'] );
             	}
             	else
             	{
@@ -267,7 +277,7 @@
 
 	function bare_ext($channel)
 	{
-		preg_match('/[^\/]+\/([^\-]+)/i', $channel, $result);
+		preg_match('/[^\/]+\/([^\-|@]+)/i', $channel, $result);
 		if (isset($result[1])) return $result[1];
 	}
 
@@ -287,8 +297,8 @@
 					} 
 					else 
 					{
-						echo "\n Cannot get info from asterisk db";
-						echo "\n line from astdb: $line";						
+						// echo "\n Cannot get info from asterisk db";
+						// echo "\n line from astdb: $line";						
 					}
 				}
 				fclose ($fd);
@@ -336,6 +346,24 @@
 			} catch (Exception $e) {
 				echo "Exception in AsteriskDB ~> $e";
 			}			
+		}
+
+		public function getBridgedCanal($channel)
+		{	
+			try {
+				system("sudo /usr/sbin/asterisk -rx \"core show channels verbose\" | grep ^$channel > /tmp/asterisk_channel_verbose.txt");
+				$fd=fopen("/tmp/asterisk_channel_verbose.txt","r");
+				$list = array();
+				while ($line=fgets($fd,1000)) {
+					$result = preg_split('/ /', $line, -1, PREG_SPLIT_NO_EMPTY);
+				}
+				fclose ($fd);
+				return $result[9];
+				// return null;
+			} catch (Exception $e) {
+				echo "Exception in AsteriskDB ~> $e";
+			}	
+
 		}
 
 		public function getExtension($jid)
@@ -465,76 +493,58 @@
 	    function (EventMessage $event) {
 	        if ($event instanceof PAMI\Message\Event\BridgeEvent)
 	        {
-	        	global $originating_calls;
+	        	// $listeners[ext] = [jid][jid][jid]
+	        	global $listeners;
 	        	global $users;
 	        	$channel1 = $event->getChannel1();
 	        	$channel2 = $event->getChannel2();
-	     //    	echo "Calls now $channel1~$channel2: ";
-	     //    	var_dump($originating_calls);
-	     //    	if ($originating_calls != null) {
-		    //     	foreach ($originating_calls as $call) {
-						// print_r($call);
-						// if ( $call["from_ext"] ==  bare_ext($channel1) ) {
-						// 	$jid = array_search(bare_ext($channel1), $users);
-						// 	if ($jid != null) {
-						// 		$response = json_encode(
-						// 			array(	'Action' 	=> 'BridgeEvent',
-	     //    								'Success' 	=> 'True',
-	     //    								'Channel'	=> $channel1 ));
-						// 		sendMessage($jid, $response);
-						// 	}
-						// }	
-						// if ( $call["with_ext"] ==  bare_ext($channel2) ) {
-						// 	$jid = array_search(bare_ext($channel2), $users);
-						// 	if ($jid != null) {
-						// 		$response = json_encode(
-						// 			array(	'Action' 	=> 'BridgeEvent',
-	     //    								'Success' 	=> 'True',
-	     //    								'Channel'	=> $channel2 ));
-						// 		sendMessage($jid, $response);
-						// 	}
-						// }		        		
-		    //     	}
-	     //    	}
-	     //    	else {
-	     //    		if ($users)
-	     //    		{
-		    //     		$from_jid = array_search(bare_ext($channel1), $users);
-		    //     		if ($from_jid != null) {
-		    //     			$response = json_encode(
-						// 				array(	'Action' 	=> 'BridgeEvent',
-		    //     								'Success' 	=> 'True',
-		    //     								'Channel'	=> $channel1 ));
-						// 			sendMessage($from_jid, $response);
-		    //     		}
-						// $with_jid = array_search(bare_ext($channel2), $users);
-		    //     		if ($with_jid != null) {
-		    //     			echo "WITH BRIDH!";
-		    //     			$response = json_encode(
-						// 				array(	'Action' 	=> 'BridgeEvent',
-		    //     								'Success' 	=> 'True',
-		    //     								'Channel'	=> $channel2 ));
-						// 			sendMessage($with_jid, $response);
-		    //     		}		
-	     //    		}
-	     //    	}
 	        	echo "Calls now $channel1~$channel2:> \n";
+	        	if ($listeners) {
+	        		if ( isset($listeners[bare_ext($channel1)]) ) {
+	        			if (is_array($listeners[bare_ext($channel1)])) {
+		        			foreach ($listeners[bare_ext($channel1)] as $listener) {
+		        				echo "listener $listener got for channel $channel1. Bridge \n";
+		        				$response = json_encode(
+												array(	'Action' 	=> 'BridgeEvent',
+			        									'Success' 	=> 'True',
+			        									'Channel'	=> $channel2,
+			        									'Extension' => bare_ext($channel2) ));
+								sendMessage($listener, $response);
+			        		}
+	        			}
+	        		}
+	        		if ( isset($listeners[bare_ext($channel2)]) ) {
+	        			if (is_array($listeners[bare_ext($channel2)])) {
+		        			foreach ($listeners[bare_ext($channel2)] as $listener) {
+		        				echo "listener $listener got for channel $channel2. Bridge \n";
+		        				$response = json_encode(
+												array(	'Action' 	=> 'BridgeEvent',
+			        									'Success' 	=> 'True',
+			        									'Channel'	=> $channel1,
+			        									'Extension' => bare_ext($channel1) ));
+								sendMessage($listener, $response);
+			        		}
+	        			}
+	        		}
+	        	}
 	        	if ($users != null ) {
 		        		$from_jid = array_search(bare_ext($channel1), $users);
 		        		if ($from_jid != null) {
 		        			$response = json_encode(
-										array(	'Action' 	=> 'BridgeEvent',
-		        								'Success' 	=> 'True',
-		        								'Channel'	=> $channel1 ));
-									sendMessage($from_jid, $response);
+											array(	'Action' 	=> 'BridgeEvent',
+		        									'Success' 	=> 'True',
+		        									'Channel'	=> $channel2,
+			        								'Extension' => bare_ext($channel2) ));
+							sendMessage($from_jid, $response);
 		        		}
-								$with_jid = array_search(bare_ext($channel2), $users);
+						$with_jid = array_search(bare_ext($channel2), $users);
 		        		if ($with_jid != null) {
 		        			$response = json_encode(
-										array(	'Action' 	=> 'BridgeEvent',
-		        								'Success' 	=> 'True',
-		        								'Channel'	=> $channel2 ));
-									sendMessage($with_jid, $response);
+											array(	'Action' 	=> 'BridgeEvent',
+			        								'Success' 	=> 'True',
+			        								'Channel'	=> $channel1,
+			        								'Extension' => bare_ext($channel2) ));
+							sendMessage($with_jid, $response);
 		        		}		
 		        }
 						// var_dump($users);
@@ -542,8 +552,21 @@
 	        if ($event instanceof PAMI\Message\Event\HangupEvent)
 	        {
 	        	global $users;
+	        	global $listeners;
 	        	$channel = $event->getChannel();
 	        	echo "Hangup channel $channel";
+	        	if ( isset($listeners[bare_ext($channel)]) ) {
+	        			if (is_array($listeners[bare_ext($channel)])) {
+		        			foreach ($listeners[bare_ext($channel)] as $listener) {
+		        				echo "listener $listener got for channel $channel. Hangup \n";
+		        				$response = json_encode(
+												array(	'Action' 	=> 'BridgeEvent',
+			        									'Success' 	=> 'True',
+			        									'Channel'	=> $channel ));
+								sendMessage($listener, $response);
+			        		}
+	        			}
+	        		}
 	        	if ($users) {
 					$jid = array_search(bare_ext($channel), $users);
 					if ($jid != null) {
@@ -560,7 +583,6 @@
 	        	global $users;
 	        	global $db;
 	        	global $astdb;
-	        	var_dump($event);
 	        	$sub_event = $event->getSubEvent();
 	        	$channel = $event->getChannel();
 	        	$from = bare_ext($channel);
@@ -569,27 +591,31 @@
 	        	$destination = bare_ext($event->getDestination());
 	        	echo "\nDial event -> \n" ;
 	        	echo "from $from to $destination\n";
-	        	try {
-	        		if ( ($sub_event) && ($destination) && ($users) )
-	        		{
-			        	if ($sub_event == "Begin") {
-									$jid = array_search($destination, $users);
-									if ($jid != null) {
-										$response = json_encode(
-											array(	'Action' 	=> 'IncomingCallEvent',
-													'Success' 	=> 'True',
-													'From' => $from_caller_id,
-													'FromJid' => $from_jid,
-													'FromExt' => $from,  
-													'Channel' => $event->getDestination() ));
-										sendMessage($jid, $response);
-									}
-			        	}	
-	        		}
-	        	} catch (Exception $e) {
-	        		echo "Excepition in DialEvent: $e\n";
+	        	// strange bug?
+	        	if ($from != $destination)
+	        	{
+	        		echo "still alive \n";
+		        	try {
+		        		if ( ($sub_event) && ($destination) && ($users) )
+		        		{
+				        	if ($sub_event == "Begin") {
+										$jid = array_search($destination, $users);
+										if ($jid != null) {
+											$response = json_encode(
+												array(	'Action' 	=> 'IncomingCallEvent',
+														'Success' 	=> 'True',
+														'From' => $from_caller_id,
+														'FromJid' => $from_jid,
+														'FromExt' => $from,  
+														'Channel' => $event->getDestination() ));
+											sendMessage($jid, $response);
+										}
+				        	}	
+		        		}
+		        	} catch (Exception $e) {
+		        		echo "Excepition in DialEvent: $e\n";
+		        	}
 	        	}
-	        	
 	        } 
 	    }
     );  
