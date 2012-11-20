@@ -1,0 +1,24 @@
+[20-Nov-2012 05:36:31 UTC] [37mjaxl_exception:75 - 2012-11-20 16:36:31 - exception handler catched {}[0m
+[20-Nov-2012 05:56:24 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 29
+[20-Nov-2012 05:56:24 UTC] PHP Warning:  unlink(.manager.pid): No such file or directory in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 29
+[20-Nov-2012 05:57:26 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 29
+[20-Nov-2012 05:57:26 UTC] PHP Warning:  unlink(.manager.pid): No such file or directory in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 29
+[20-Nov-2012 05:57:56 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 05:57:56 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 29
+[20-Nov-2012 05:57:56 UTC] PHP Warning:  unlink(.manager.pid): No such file or directory in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 29
+[20-Nov-2012 05:58:17 UTC] PHP Warning:  unlink(0.manager.pid): No such file or directory in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 30
+[20-Nov-2012 05:58:48 UTC] PHP Warning:  unlink(*.manager.pid): No such file or directory in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 30
+[20-Nov-2012 05:59:17 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 06:01:24 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 06:04:23 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 06:04:23 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 06:04:30 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 06:04:50 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 06:11:25 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 28
+[20-Nov-2012 06:12:33 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 35
+[20-Nov-2012 06:15:38 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 35
+[20-Nov-2012 06:15:59 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 50
+[20-Nov-2012 06:16:32 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 52
+[20-Nov-2012 06:17:12 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 53
+[20-Nov-2012 06:21:28 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/manager.php on line 52
+[20-Nov-2012 06:21:37 UTC] PHP Notice:  Undefined variable: child_pid_global in /home/nimdraug/work/php/furiko/furiko-server/furiko-manager.php on line 52

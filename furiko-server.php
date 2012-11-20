@@ -1,5 +1,4 @@
 <?php
-	echo "starting me";
 	require_once 'PAMI/Autoloader/Autoloader.php';  
 	require_once 'log4php/Logger.php';
 	PAMI\Autoloader\Autoloader::register(); 
@@ -28,13 +27,13 @@
 		posix_setsid();
 
 		$baseDir = dirname(__FILE__);
-		ini_set('error_log',$baseDir.'/error.log');
+		ini_set('error_log',$baseDir.'/furiko_error.log');
 		fclose(STDIN);
 		fclose(STDOUT);
 		fclose(STDERR);
 		$STDIN = fopen('/dev/null', 'r');
-		$STDOUT = fopen($baseDir.'/application.log', 'ab');
-		$STDERR = fopen($baseDir.'/daemon.log', 'ab');
+		$STDOUT = fopen($baseDir.'/furiko_application.log', 'ab');
+		$STDERR = fopen($baseDir.'/furiko_daemon.log', 'ab');
 	}
 
 	// include 'XMPPHP/XMPP.php';
@@ -551,34 +550,34 @@
 	        } 
 	        if ($event instanceof PAMI\Message\Event\HangupEvent)
 	        {
-	      //   	global $users;
-	      //   	global $listeners;
-	      //   	$channel = $event->getChannel();
-	      //   	echo "Hangup channel $channel";
+	        	global $users;
+	        	global $listeners;
+	        	$channel = $event->getChannel();
+	        	echo "Hangup channel $channel";
 	        	
-	      //   	if ( isset($listeners[bare_ext($channel)]) ) {
-       //  			if (is_array($listeners[bare_ext($channel)])) {
-	      //   			foreach ($listeners[bare_ext($channel)] as $listener) {
-	      //   				echo "listener $listener got for channel $channel. Hangup \n";
-	      //   				$response = json_encode(
-							// 				array(	'Action' 	=> 'BridgeEvent',
-		     //    									'Success' 	=> 'True',
-		     //    									'Channel'	=> $channel ));
-							// 		sendMessage($listener, $response);
-		     //    		}
-       //  			}
-       //  		}
+	        	if ( isset($listeners[bare_ext($channel)]) ) {
+        			if (is_array($listeners[bare_ext($channel)])) {
+	        			foreach ($listeners[bare_ext($channel)] as $listener) {
+	        				echo "listener $listener got for channel $channel. Hangup \n";
+	        				$response = json_encode(
+											array(	'Action' 	=> 'BridgeEvent',
+		        									'Success' 	=> 'True',
+		        									'Channel'	=> $channel ));
+									sendMessage($listener, $response);
+		        		}
+        			}
+        		}
         		
-	      //   	if ($users) {
-							// $jid = array_search(bare_ext($channel), $users);
-							// if ($jid != null) {
-							// 	$response = json_encode(
-							// 		array(	'Action' 	=> 'HangupEvent',
-							// 				'Success' 	=> 'True',
-							// 				'Channel'	=> $channel ));
-							// 	sendMessage($jid, $response);
-							// }
-	      //   	}
+	        	if ($users) {
+							$jid = array_search(bare_ext($channel), $users);
+							if ($jid != null) {
+								$response = json_encode(
+									array(	'Action' 	=> 'HangupEvent',
+											'Success' 	=> 'True',
+											'Channel'	=> $channel ));
+								sendMessage($jid, $response);
+							}
+	        	}
 	        } 
 	        if ($event instanceof PAMI\Message\Event\DialEvent)
 	        {
@@ -671,13 +670,7 @@
 		processMessage($stanza);
 	});
 
-	try {
-		while (1) {
-			$xmpp_client->start(array(
+	$xmpp_client->start(array(
 						'--with-unix-sock' => true), $pamiClient);
-		}
-	} catch (Exception $e) {
-		throw $e;
-	}	
 
 ?>
