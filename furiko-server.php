@@ -253,19 +253,19 @@
             		// $response = $pamiClient->send($sa);
             		// var_dump($response);
             		// $ha = new HangupAction($channel);
-					// $response = $pamiClient->send($ha);
-					// echo "Hangup: $channel";
-					$response_array = array(	'Action' 	=> 'HangupEvent',
-												'Success' 	=> 'True',
-												'Channel'	=> $request['Channel'] );
+								// $response = $pamiClient->send($ha);
+								// echo "Hangup: $channel";
+								$response_array = array(	'Action' 	=> 'HangupEvent',
+															'Success' 	=> 'True',
+															'Channel'	=> $request['Channel'] );
             	}
             	else
             	{
             		$response_array = $error_401;
             	}
                 $response = json_encode($response_array);
-           		sendMessage($from, $response);
-            break;
+           			sendMessage($from, $response);
+           	break;
         }
     }
 	}
@@ -551,49 +551,52 @@
 	        } 
 	        if ($event instanceof PAMI\Message\Event\HangupEvent)
 	        {
-	        	global $users;
-	        	global $listeners;
-	        	$channel = $event->getChannel();
-	        	echo "Hangup channel $channel";
-	        	if ( isset($listeners[bare_ext($channel)]) ) {
-	        			if (is_array($listeners[bare_ext($channel)])) {
-		        			foreach ($listeners[bare_ext($channel)] as $listener) {
-		        				echo "listener $listener got for channel $channel. Hangup \n";
-		        				$response = json_encode(
-												array(	'Action' 	=> 'BridgeEvent',
-			        									'Success' 	=> 'True',
-			        									'Channel'	=> $channel ));
-								sendMessage($listener, $response);
-			        		}
-	        			}
-	        		}
-	        	if ($users) {
-					$jid = array_search(bare_ext($channel), $users);
-					if ($jid != null) {
-						$response = json_encode(
-							array(	'Action' 	=> 'HangupEvent',
-									'Success' 	=> 'True',
-									'Channel'	=> $channel ));
-						sendMessage($jid, $response);
-					}
-	        	}
+	      //   	global $users;
+	      //   	global $listeners;
+	      //   	$channel = $event->getChannel();
+	      //   	echo "Hangup channel $channel";
+	        	
+	      //   	if ( isset($listeners[bare_ext($channel)]) ) {
+       //  			if (is_array($listeners[bare_ext($channel)])) {
+	      //   			foreach ($listeners[bare_ext($channel)] as $listener) {
+	      //   				echo "listener $listener got for channel $channel. Hangup \n";
+	      //   				$response = json_encode(
+							// 				array(	'Action' 	=> 'BridgeEvent',
+		     //    									'Success' 	=> 'True',
+		     //    									'Channel'	=> $channel ));
+							// 		sendMessage($listener, $response);
+		     //    		}
+       //  			}
+       //  		}
+        		
+	      //   	if ($users) {
+							// $jid = array_search(bare_ext($channel), $users);
+							// if ($jid != null) {
+							// 	$response = json_encode(
+							// 		array(	'Action' 	=> 'HangupEvent',
+							// 				'Success' 	=> 'True',
+							// 				'Channel'	=> $channel ));
+							// 	sendMessage($jid, $response);
+							// }
+	      //   	}
 	        } 
 	        if ($event instanceof PAMI\Message\Event\DialEvent)
 	        {
 	        	global $users;
 	        	global $db;
 	        	global $astdb;
-	        	$sub_event = $event->getSubEvent();
+	        	$destination = bare_ext($event->getDestination());
 	        	$channel = $event->getChannel();
 	        	$from = bare_ext($channel);
-				$from_caller_id = $event->getCallerIDName();
-				$from_jid = $astdb->getJid($from);
-	        	$destination = bare_ext($event->getDestination());
-	        	echo "\nDial event -> \n" ;
-	        	echo "from $from to $destination\n";
+	        	
 	        	// strange bug?
-	        	if ($from != $destination)
+	        	if ( ($from != $destination) && ($destination != "") )
 	        	{
+		        	$sub_event = $event->getSubEvent();
+							$from_caller_id = $event->getCallerIDName();
+							$from_jid = $astdb->getJid($from);
+		        	echo "\nDial event -> \n" ;
+		        	echo "from $from to $destination\n";
 	        		echo "still alive \n";
 		        	try {
 		        		if ( ($sub_event) && ($destination) && ($users) )
@@ -668,7 +671,13 @@
 		processMessage($stanza);
 	});
 
-	$xmpp_client->start(array(
-				'--with-unix-sock' => true), $pamiClient);
+	try {
+		while (1) {
+			$xmpp_client->start(array(
+						'--with-unix-sock' => true), $pamiClient);
+		}
+	} catch (Exception $e) {
+		throw $e;
+	}	
 
 ?>
